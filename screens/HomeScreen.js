@@ -1,9 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import SearchBar from '../components/SearchBar';
 
 const HomeScreen = () => {
+  const handleSearch = (query) => {
+    // Implement your search logic here with the 'query'
+    console.log('Searching for:', query);
+  };
+
   return (
     <View style={styles.container}>
+      <SearchBar onSearch={handleSearch}/>
       <Text style={styles.text}>HOME SCREEN HERE</Text>
     </View>
   );
@@ -11,7 +18,8 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'bgColor',
     justifyContent: 'center',
     alignItems: 'center',
     // Add any additional styles for your screen's container here

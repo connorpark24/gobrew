@@ -1,21 +1,44 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-const SearchBar = ({ prop1, prop2 }) => {
+const SearchBar = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
+
+  const handleSearch = () => {
+    onSearch(query);
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Component Content Goes Here</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Search..."
+        value={query}
+        onChangeText={(text) => setQuery(text)}
+      />
+      <TouchableOpacity style={styles.button} onPress={handleSearch}>
+        <Ionicons name="search" size={24} color="blue" />
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // Add styles for the component container here
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'lightgray',
+    borderRadius: 10,
+    padding: 5,
   },
-  text: {
-    // Add styles for text or content within the component here
+  input: {
+    flex: 1,
+    padding: 10,
+  },
+  button: {
+    padding: 10,
   },
 });
 
-export default SearchBars;
+export default SearchBar;
