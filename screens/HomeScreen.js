@@ -19,7 +19,6 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    backgroundColor: 'bgColor',
     justifyContent: 'center',
     alignItems: 'center',
     // Add any additional styles for your screen's container here

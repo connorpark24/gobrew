@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: 'bgColor'
     // Add any additional styles for your screen's container here
   },
   text: {
