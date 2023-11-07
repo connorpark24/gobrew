@@ -1,17 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import SearchBar from '../components/SearchBar';
+import Carousel from 'react-native-snap-carousel'
+import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from './CarouselCardItem.js'
+import data from './data'
 
 const HomeScreen = () => {
-  const handleSearch = (query) => {
-    // Implement your search logic here with the 'query'
-    console.log('Searching for:', query);
-  };
+  const isCarousel = React.useRef(null)
 
   return (
     <View style={styles.container}>
-      <SearchBar onSearch={handleSearch}/>
-      <Text style={styles.text}>HOME SCREEN HERE</Text>
+      <Text style={styles.header}>Home</Text>
+      <Carousel
+        layout="default"
+        data={data}
+        renderItem={CarouselCardItem}
+        sliderWidth={SLIDER_WIDTH}
+        itemWidth={ITEM_WIDTH}
+      />
     </View>
   );
 };
@@ -19,14 +24,16 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // Add any additional styles for your screen's container here
+    backgroundColor: 'white',
+    flex: 1
   },
-  text: {
-    fontSize: 20,
-    // Add any text styles here
-  },
+  header: {
+    fontSize: 35,
+    marginLeft: 20,
+    marginVertical: 20,
+    color: 'black',
+    fontWeight: '500'
+  }
 });
 
 export default HomeScreen;

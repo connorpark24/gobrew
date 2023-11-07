@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
@@ -30,10 +30,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     padding: 5,
+    borderColor: 'ffffff'
   },
   input: {
     flex: 1,
     padding: 10,
+    backgroundColor: 'f3f3f3'
   },
   button: {
     padding: 10,
