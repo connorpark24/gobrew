@@ -18,7 +18,7 @@ const SearchBar = ({ onSearch }) => {
         onChangeText={(text) => setQuery(text)}
       />
       <TouchableOpacity style={styles.button} onPress={handleSearch}>
-        <Ionicons name="search" size={24} color="blue" />
+        <Ionicons name="search" size={24} />
       </TouchableOpacity>
     </View>
   );
@@ -29,8 +29,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 10,
-    padding: 5,
-    borderColor: 'ffffff'
+    marginVertical: 10,
+    width: '90%',
+    backgroundColor: '#ececec'
   },
   input: {
     flex: 1,
