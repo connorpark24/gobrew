@@ -10,7 +10,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Home</Text>
+      {/* <Text style={styles.header}>Home</Text> */}
       <View style={styles.carouselContainer}>
         <SearchBar />
         <Carousel

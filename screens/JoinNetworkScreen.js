@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const NetworkScreen = () => {
+const JoinNetworkScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>NETWORK SCREEN HERE</Text>
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NetworkScreen;
+export default JoinNetworkScreen;

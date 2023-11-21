@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     padding: 10,
-    backgroundColor: 'f3f3f3'
+    backgroundColor: '#f3f3f3'
   },
   button: {
     padding: 10,

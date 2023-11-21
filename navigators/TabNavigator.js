@@ -3,10 +3,12 @@ import {StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import { COLORS, FONT, SIZES, SHADOWS } from '../constants/theme.js';
+
 import HomeScreen from '../screens/HomeScreen';
 import ClubsScreen from '../screens/ClubsScreen';
-import NetworkScreen from '../screens/NetworkScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import ClubStackNavigator from './ClubStackNavigator.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,10 +16,13 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator 
       screenOptions={{
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: 'blue', 
-        tabBarInactiveTintColor: 'gray'
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: 'gray',
+        tabBarLabelStyle: {fontSize: 12},
+        headerTitleStyle: {
+          fontSize: 24,
+        },
+        headerTitleAlign: "center",
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{
@@ -25,18 +30,14 @@ const TabNavigator = () => {
             <Ionicons name="home" color={color} size={30} />
           ),
         }}/>
-      <Tab.Screen name="Clubs" component={ClubsScreen} options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={30} />
+      <Tab.Screen name="Clubs" component={ClubStackNavigator} options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="earth-outline" color={color} size={30} />
           ),
-        }}/>
-      <Tab.Screen name="Network" component={NetworkScreen} options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" color={color} size={30} />
-          ),
+          headerShown: false
         }}/>
       <Tab.Screen name="Profile" component={ProfileScreen} options={{
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color }) => (
             <Ionicons name="person-circle" color={color} size={30} />
           ),
         }}/>
