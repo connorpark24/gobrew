@@ -8,10 +8,10 @@ export const hello = Dimensions.get('window').height
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.85)
 export const ITEM_HEIGHT = Math.round(hello * 0.63)
 
-const CarouselCardItem = ({ item, index }) => {
+const CarouselCardItem = ({ item, index, navigation }) => {
   return (
     <View>
-      <View style={styles.container} key={index}>
+      <Pressable style={styles.container} key={index} onPress={() => navigation.navigate('User Details', { currentUser: item })}>
 
         <View style={{height: 'auto', width: '100%', display: 'flex', flexDirection: 'row', borderRadius: 20, alignItems: 'center', marginTop: 15}}>
           <View style={{marginLeft: 20, width: '50%'}}>
@@ -38,9 +38,8 @@ const CarouselCardItem = ({ item, index }) => {
         <View style={{height: 300, width: '95%'}}>
             <Text style={{fontSize: 16, marginLeft: 10, fontWeight: 300}}>{item.bio}</Text>
         </View>
-      </View>
+      </Pressable>
     </View>
-    
   )
 }
 

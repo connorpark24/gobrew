@@ -2,17 +2,16 @@ import React from 'react';
 import { ScrollView, View, Text, StyleSheet, Image, Pressable, Alert } from 'react-native';
 import { clubData } from '../constants/data.js'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useNavigation } from '@react-navigation/native';
 
 import { COLORS, FONT, SIZES, SHADOWS } from '../constants/theme.js';
 
 const ClubsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      {/* <Text style={{fontSize: 35, marginLeft: 20, marginTop: 70, marginBottom: 20, fontWeight: '400'}}>Your Clubs</Text> */}
+      <Text style={{fontSize: 35, marginLeft: 20, marginTop: 70, marginBottom: 20, fontWeight: '400'}}>Your Clubs</Text>
       <ScrollView contentContainerStyle={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         {clubData.map((club, index) => (
-          <Pressable key={index} style={styles.clubCard} onPress={() => navigation.navigate("Join Network")}>
+          <Pressable key={index} style={styles.clubCard} onPress={() => navigation.navigate('Club Details', { currentClub: club })}>
             <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
               <Image style={{width: 70, height: 70, borderRadius: 10, margin: 10}} source={club.logo}
               />

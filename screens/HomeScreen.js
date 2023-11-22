@@ -5,18 +5,18 @@ import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from '../components/Carous
 import { userData } from '../constants/data.js'
 import SearchBar from '../components/SearchBar.js';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const isCarousel = React.useRef(null)
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.header}>Home</Text> */}
+      <Text style={styles.header}>Home</Text>
       <View style={styles.carouselContainer}>
         <SearchBar />
         <Carousel
           layout="default"
           data={userData}
-          renderItem={CarouselCardItem}
+          renderItem={(props) => <CarouselCardItem {...props} navigation={navigation} />}
           sliderWidth={SLIDER_WIDTH}
           itemWidth={ITEM_WIDTH}
         />
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     marginTop: 70,
     marginBottom: 20,
     color: 'black',
-    fontWeight: '500',
+    fontWeight: '400',
   }
 });
 

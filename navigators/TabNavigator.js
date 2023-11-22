@@ -9,6 +9,7 @@ import HomeScreen from '../screens/HomeScreen';
 import ClubsScreen from '../screens/ClubsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ClubStackNavigator from './ClubStackNavigator.js';
+import UserStackNavigator from './UserStackNavigator.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,16 +17,17 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator 
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: 'gray',
         tabBarLabelStyle: {fontSize: 12},
         headerTitleStyle: {
-          fontSize: 24,
+          fontSize: 20,
         },
         headerTitleAlign: "center",
       }}
     >
-      <Tab.Screen name="Home" component={HomeScreen} options={{
+      <Tab.Screen name="Main" component={UserStackNavigator} options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" color={color} size={30} />
           ),
