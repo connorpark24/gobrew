@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.carouselContainer}>
         <SearchBar />
         <Carousel
-          layout="default"
+          layout="tinder"
           data={userData}
           renderItem={(props) => <CarouselCardItem {...props} navigation={navigation} />}
           sliderWidth={SLIDER_WIDTH}
