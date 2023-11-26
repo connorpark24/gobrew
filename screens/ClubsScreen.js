@@ -8,7 +8,7 @@ import { COLORS, FONT, SIZES, SHADOWS } from '../constants/theme.js';
 const ClubsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={{fontSize: 35, marginLeft: 20, marginTop: 70, marginBottom: 20, fontWeight: '400'}}>Your Clubs</Text>
+      <Text style={{fontSize: 35, marginLeft: 20, marginBottom: 20, fontWeight: '400'}}>Your Clubs</Text>
       <ScrollView contentContainerStyle={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         {clubData.map((club, index) => (
           <Pressable key={index} style={styles.clubCard} onPress={() => navigation.navigate('Club Details', { currentClub: club })}>

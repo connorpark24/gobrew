@@ -14,10 +14,12 @@ const ClubStackNavigator = () => {
           fontSize: 20,
         },
         headerTitleAlign: "center",
+        headerShadowVisible: false,
+        title: ""
       }}>
-      <Stack.Screen name="Clubs" component={ClubsScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Join Network" component={JoinNetworkScreen} />
-      <Stack.Screen name="Club Details" component={ClubDetailsScreen} />
+      <Stack.Screen name="Clubs" component={ClubsScreen} />
+      <Stack.Screen name="Join Network" component={JoinNetworkScreen}/>
+      <Stack.Screen name="Club Details" component={ClubDetailsScreen}/>
     </Stack.Navigator>
   );
 };

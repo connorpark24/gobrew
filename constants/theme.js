@@ -9,13 +9,20 @@ const COLORS = {
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
 
-  bgColor: "#ECECf1"
+  bgColor: "#ECECf1",
 };
 
 const FONT = {
   regular: "DMRegular",
   medium: "DMMedium",
   bold: "DMBold",
+};
+
+const FONTSIZES = {
+  small: 8,
+  regular: 20,
+  medium: 30,
+  large: 42,
 };
 
 const SIZES = {
@@ -40,4 +47,4 @@ const SHADOWS = {
   },
 };
 
-export { COLORS, FONT, SIZES, SHADOWS };
+export { COLORS, FONT, FONTSIZES, SIZES, SHADOWS };

@@ -4,11 +4,26 @@ export const userData = [
     lastName: "Baker",
     major: "Computer Science",
     imgUrl: "https://picsum.photos/id/10/200/300",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🐐 🥑 🚘",
     clubs: [
+      {
+        name: "V1 Michigan",
+        icon: require("../assets/icons/v1logo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+    ],
+    experiences: [
       { name: "V1 Michigan", icon: require("../assets/icons/v1logo.png") },
-      { name: "Kappa Theta Pi", icon: require("../assets/icons/michiganlogo.png") },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+      },
     ],
   },
   {
@@ -16,11 +31,26 @@ export const userData = [
     lastName: "Jennett",
     major: "Art + UX Design",
     imgUrl: "https://picsum.photos/id/10/200/300",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🎨 💻 🏜️ 🏝️ ✈️",
     clubs: [
+      {
+        name: "V1 Michigan",
+        icon: require("../assets/icons/v1logo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+    ],
+    experiences: [
       { name: "V1 Michigan", icon: require("../assets/icons/v1logo.png") },
-      { name: "Kappa Theta Pi", icon: require("../assets/icons/michiganlogo.png") },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+      },
     ],
   },
   {
@@ -28,11 +58,26 @@ export const userData = [
     lastName: "Roeda",
     major: "Business",
     imgUrl: "https://picsum.photos/id/12/200/300",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🐐 🥑 🚘",
     clubs: [
+      {
+        name: "V1 Michigan",
+        icon: require("../assets/icons/v1logo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+    ],
+    experiences: [
       { name: "V1 Michigan", icon: require("../assets/icons/v1logo.png") },
-      { name: "Kappa Theta Pi", icon: require("../assets/icons/michiganlogo.png") },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+      },
     ],
   },
   {
@@ -40,11 +85,26 @@ export const userData = [
     lastName: "Coolidge",
     major: "Mechanical Eng.",
     imgUrl: "https://picsum.photos/id/12/200/300",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🐐 🥑 🚘",
     clubs: [
+      {
+        name: "V1 Michigan",
+        icon: require("../assets/icons/v1logo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+    ],
+    experiences: [
       { name: "V1 Michigan", icon: require("../assets/icons/v1logo.png") },
-      { name: "Kappa Theta Pi", icon: require("../assets/icons/michiganlogo.png") },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+      },
     ],
   },
   {
@@ -52,11 +112,26 @@ export const userData = [
     lastName: "Park",
     major: "Computer Science",
     imgUrl: "https://picsum.photos/id/12/200/300",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🍣 〽️ ⛳️",
     clubs: [
+      {
+        name: "V1 Michigan",
+        icon: require("../assets/icons/v1logo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+        role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+    ],
+    experiences: [
       { name: "V1 Michigan", icon: require("../assets/icons/v1logo.png") },
-      { name: "Kappa Theta Pi", icon: require("../assets/icons/michiganlogo.png") },
+      {
+        name: "Kappa Theta Pi",
+        icon: require("../assets/icons/michiganlogo.png"),
+      },
     ],
   },
 ];
