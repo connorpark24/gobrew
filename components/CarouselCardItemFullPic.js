@@ -29,7 +29,7 @@ const CarouselCardItemFullPic = ({ item, index, navigation }) => {
         <Image
           style={{
             width: "100%",
-            height: "40%",
+            height: "50%",
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
             resizeMode: "cover",
@@ -43,7 +43,6 @@ const CarouselCardItemFullPic = ({ item, index, navigation }) => {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            marginTop: 5,
           }}
         >
           <View
@@ -52,19 +51,18 @@ const CarouselCardItemFullPic = ({ item, index, navigation }) => {
               width: "100%",
               display: "flex",
               flexDirection: "column",
-              rowGap: 5,
             }}
           >
             <Text
               style={{
-                fontSize: 35,
-                fontWeight: 400,
+                fontSize: 30,
+                fontWeight: 300,
               }}
             >
               {item.firstName} {item.lastName}
             </Text>
-            <Text style={{ fontSize: 16, fontWeight: 300 }}>{item.major}</Text>
-            <Text style={{ fontSize: 20, marginTop: 5 }}>{item.emojis}</Text>
+            <Text style={{ fontSize: 18, fontWeight: 200 }}>{item.major}</Text>
+            <Text style={{ fontSize: 18, marginTop: 5 }}>{item.emojis}</Text>
           </View>
         </View>
 
@@ -76,7 +74,6 @@ const CarouselCardItemFullPic = ({ item, index, navigation }) => {
             columnGap: 10,
             flexWrap: "wrap",
             width: "90%",
-            height: 60,
           }}
         >
           {item.clubs.map((club, index) => (
@@ -92,8 +89,15 @@ const CarouselCardItemFullPic = ({ item, index, navigation }) => {
           ))}
         </View>
 
-        <View style={{ height: 300, width: "95%" }}>
-          <Text style={{ fontSize: 16, marginLeft: 10, fontWeight: 300 }}>
+        <View style={{ width: "95%" }}>
+          <Text
+            style={{
+              fontSize: 14,
+              marginLeft: 10,
+              fontWeight: 200,
+            }}
+            adjustsFontSizeToFit={true}
+          >
             {item.bio}
           </Text>
         </View>

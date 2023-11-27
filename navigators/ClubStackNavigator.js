@@ -35,7 +35,6 @@ const ClubStackNavigator = () => {
         name="Join Network"
         component={JoinNetworkScreen}
         options={{
-          headerTitle: () => <SearchBar />,
           headerBackTitleVisible: true,
         }}
       />

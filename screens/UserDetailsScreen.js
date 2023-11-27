@@ -7,12 +7,15 @@ import {
   Pressable,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
 
 const UserDetailsScreen = ({ route, navigation }) => {
   const { currentUser } = route.params;
+
+  const { width, height } = Dimensions.get("window");
 
   return (
     <ScrollView
@@ -28,10 +31,12 @@ const UserDetailsScreen = ({ route, navigation }) => {
           }}
         >
           <View>
-            <Text style={{ fontSize: 35 }}>
+            <Text style={{ fontSize: 28, fontWeight: "300" }}>
               {currentUser.firstName} {currentUser.lastName}
             </Text>
-            <Text style={{ fontSize: 20 }}>{currentUser.major}</Text>
+            <Text style={{ fontSize: 16, fontWeight: "300" }}>
+              {currentUser.major}
+            </Text>
             <TouchableOpacity
               style={{
                 backgroundColor: COLORS.primary,
@@ -58,7 +63,9 @@ const UserDetailsScreen = ({ route, navigation }) => {
           />
         </View>
 
-        <Text style={{ fontSize: 16 }}>{currentUser.bio}</Text>
+        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+          {currentUser.bio}
+        </Text>
       </View>
 
       <View style={{ marginHorizontal: 15 }}>
@@ -84,63 +91,19 @@ const UserDetailsScreen = ({ route, navigation }) => {
                 }}
                 source={club.icon}
               />
-              <View>
-                <Text style={{ fontSize: 18 }}>{club.name}</Text>
-                <Text style={{ fontSize: 14, width: 300 }}>{club.role}</Text>
-              </View>
-            </View>
-          ))}
-          {currentUser.clubs.map((club, index) => (
-            <View
-              key={index}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                columnGap: 10,
-                height: 90,
-                padding: 5,
-                // ...SHADOWS.main,
-              }}
-            >
-              <Image
-                style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: 10,
-                }}
-                source={club.icon}
-              />
-              <View>
-                <Text style={{ fontSize: 18 }}>{club.name}</Text>
-                <Text style={{ fontSize: 14, width: 300 }}>{club.role}</Text>
-              </View>
-            </View>
-          ))}
-          {currentUser.clubs.map((club, index) => (
-            <View
-              key={index}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                columnGap: 10,
-                height: 90,
-                padding: 5,
-                // ...SHADOWS.main,
-              }}
-            >
-              <Image
-                style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: 10,
-                }}
-                source={club.icon}
-              />
-              <View>
-                <Text style={{ fontSize: 18 }}>{club.name}</Text>
-                <Text style={{ fontSize: 14, width: 300 }}>{club.role}</Text>
+              <View style={{ width: "80%" }}>
+                <Text style={{ fontSize: 18, fontWeight: "300" }}>
+                  {club.name}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    width: "100%",
+                    fontWeight: "300",
+                  }}
+                >
+                  {club.role}
+                </Text>
               </View>
             </View>
           ))}

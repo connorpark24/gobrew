@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    fontSize: 40,
+    fontSize: 30,
     marginLeft: 20,
     marginVertical: 15,
     color: "black",
-    fontWeight: "400",
+    fontWeight: "300",
   },
 });
 

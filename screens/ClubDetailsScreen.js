@@ -39,13 +39,15 @@ const ClubDetailsScreen = ({ route, navigation }) => {
           >
             <View style={{ width: 215, height: 75 }}>
               <Text
-                style={{ fontSize: 40 }}
+                style={{ fontSize: 40, fontWeight: "300" }}
                 adjustsFontSizeToFit={true}
                 numberOfLines={1}
               >
                 {currentClub.name}
               </Text>
-              <Text style={{ fontSize: 20 }}>{currentClub.size} members</Text>
+              <Text style={{ fontSize: 20, fontWeight: "300" }}>
+                {currentClub.size} members
+              </Text>
             </View>
             <Image
               style={{
@@ -58,7 +60,14 @@ const ClubDetailsScreen = ({ route, navigation }) => {
             />
           </View>
 
-          <Text style={{ fontSize: 16, marginTop: 20, borderRadius: 20 }}>
+          <Text
+            style={{
+              fontSize: 16,
+              marginTop: 20,
+              borderRadius: 20,
+              fontWeight: "300",
+            }}
+          >
             {currentClub.description}
           </Text>
         </View>
@@ -71,31 +80,28 @@ const ClubDetailsScreen = ({ route, navigation }) => {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                rowGap: 20,
                 backgroundColor: "white",
                 borderRadius: "10px",
-                marginVertical: 10,
-                width: "95%",
-                height: 80,
-                ...SHADOWS.main,
+                borderBottomColor: "#dfdfdf",
+                borderBottomWidth: 1,
+                width: "100%",
+                height: 60,
               }}
             >
               <Image
                 style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: 30,
+                  width: 40,
+                  height: 40,
+                  borderRadius: 20,
                   marginHorizontal: 20,
                 }}
-                source={{
-                  uri: user.imgUrl,
-                }}
+                source={user.picture}
               />
               <View style={{ display: "flex", flexDirection: "column" }}>
-                <Text style={{ fontSize: 22, fontWeight: 400 }}>
+                <Text style={{ fontSize: 18, fontWeight: 300 }}>
                   {user.firstName} {user.lastName}
                 </Text>
-                <Text style={{ fontSize: 14, fontWeight: 400 }}>
+                <Text style={{ fontSize: 14, fontWeight: 300 }}>
                   {user.major}
                 </Text>
               </View>

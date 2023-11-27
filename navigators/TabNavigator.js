@@ -52,6 +52,11 @@ const TabNavigator = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-circle" color={color} size={30} />
           ),
+          headerRight: () => (
+            <Ionicons name="settings" size={24} style={{ marginRight: 10 }} />
+          ),
+          headerShown: true,
+          headerShadowVisible: false,
         }}
       />
     </Tab.Navigator>

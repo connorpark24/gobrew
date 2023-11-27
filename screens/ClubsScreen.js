@@ -24,10 +24,10 @@ const ClubsScreen = ({ navigation }) => {
     >
       <Text
         style={{
-          fontSize: 40,
+          fontSize: 30,
           marginLeft: 20,
           marginVertical: 15,
-          fontWeight: "400",
+          fontWeight: "300",
         }}
       >
         Your Clubs
@@ -62,8 +62,8 @@ const ClubsScreen = ({ navigation }) => {
                 marginLeft: 10,
               }}
             >
-              <Text style={{ fontSize: 24, fontWeight: 400 }}>{club.name}</Text>
-              <Text style={{ fontSize: 16, fontWeight: 400 }}>
+              <Text style={{ fontSize: 20, fontWeight: 300 }}>{club.name}</Text>
+              <Text style={{ fontSize: 14, fontWeight: 300 }}>
                 {club.size} members
               </Text>
             </View>
@@ -99,7 +99,7 @@ const ClubsScreen = ({ navigation }) => {
               color="white"
             />
           </View>
-          <Text style={{ fontSize: 24, fontWeight: 500, color: "white" }}>
+          <Text style={{ fontSize: 20, fontWeight: 400, color: "white" }}>
             Join network
           </Text>
         </Pressable>
