@@ -15,7 +15,9 @@ const UserDetailsScreen = ({ route, navigation }) => {
   const { currentUser } = route.params;
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={{ flexDirection: "column", flex: 1, backgroundColor: "white" }}
+    >
       <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
         <View
           style={{
@@ -52,9 +54,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
               borderRadius: 60,
               marginLeft: 30,
             }}
-            source={{
-              uri: currentUser.imgUrl,
-            }}
+            source={currentUser.picture}
           />
         </View>
 
@@ -62,12 +62,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
       </View>
 
       <View style={{ marginHorizontal: 15 }}>
-        <ScrollView
-          contentContainerStyle={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
+        <View>
           {currentUser.clubs.map((club, index) => (
             <View
               key={index}
@@ -76,10 +71,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
                 flexDirection: "row",
                 alignItems: "center",
                 columnGap: 10,
-                height: 100,
-                marginBottom: 10,
-                borderRadius: 10,
-                borderWidth: 0.5,
+                height: 90,
                 padding: 5,
                 // ...SHADOWS.main,
               }}
@@ -106,10 +98,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
                 flexDirection: "row",
                 alignItems: "center",
                 columnGap: 10,
-                height: 100,
-                marginBottom: 5,
-                borderRadius: 10,
-                borderWidth: 0.5,
+                height: 90,
                 padding: 5,
                 // ...SHADOWS.main,
               }}
@@ -136,10 +125,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
                 flexDirection: "row",
                 alignItems: "center",
                 columnGap: 10,
-                height: 100,
-                marginBottom: 5,
-                borderRadius: 10,
-                borderWidth: 0.5,
+                height: 90,
                 padding: 5,
                 // ...SHADOWS.main,
               }}
@@ -158,18 +144,13 @@ const UserDetailsScreen = ({ route, navigation }) => {
               </View>
             </View>
           ))}
-        </ScrollView>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "column",
-    flex: 1,
-    backgroundColor: "white",
-  },
   text: {
     fontSize: 20,
     // Add any text styles here

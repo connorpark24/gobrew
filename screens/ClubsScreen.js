@@ -15,7 +15,13 @@ import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
 
 const ClubsScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Text
         style={{
           fontSize: 40,
@@ -26,13 +32,7 @@ const ClubsScreen = ({ navigation }) => {
       >
         Your Clubs
       </Text>
-      <ScrollView
-        contentContainerStyle={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <View style={{ alignItems: "center" }}>
         {clubData.map((club, index) => (
           <Pressable
             key={index}
@@ -77,7 +77,7 @@ const ClubsScreen = ({ navigation }) => {
             backgroundColor: "white",
             borderRadius: "10px",
             width: "90%",
-            height: "25%",
+            height: "20%",
             margin: 10,
             ...SHADOWS.main,
             backgroundColor: COLORS.primary,
@@ -103,8 +103,8 @@ const ClubsScreen = ({ navigation }) => {
             Join network
           </Text>
         </Pressable>
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: "10px",
     width: "90%",
-    height: "25%",
+    height: "20%",
     margin: 10,
     ...SHADOWS.main,
   },

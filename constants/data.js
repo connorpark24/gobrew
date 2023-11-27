@@ -3,7 +3,7 @@ export const userData = [
     firstName: "Andrew",
     lastName: "Baker",
     major: "Computer Science",
-    imgUrl: "https://picsum.photos/id/10/200/300",
+    picture: require("../assets/icons/v1logo.png"),
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🐐 🥑 🚘",
     clubs: [
@@ -30,7 +30,7 @@ export const userData = [
     firstName: "Emily",
     lastName: "Jennett",
     major: "Art + UX Design",
-    imgUrl: "https://picsum.photos/id/10/200/300",
+    picture: require("../assets/icons/v1logo.png"),
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🎨 💻 🏜️ 🏝️ ✈️",
     clubs: [
@@ -57,7 +57,7 @@ export const userData = [
     firstName: "Alison",
     lastName: "Roeda",
     major: "Business",
-    imgUrl: "https://picsum.photos/id/12/200/300",
+    picture: require("../assets/icons/v1logo.png"),
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🐐 🥑 🚘",
     clubs: [
@@ -83,8 +83,8 @@ export const userData = [
   {
     firstName: "Griffin",
     lastName: "Coolidge",
-    major: "Mechanical Eng.",
-    imgUrl: "https://picsum.photos/id/12/200/300",
+    major: "Mechanical Engineering",
+    picture: require("../assets/icons/v1logo.png"),
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🐐 🥑 🚘",
     clubs: [
@@ -111,7 +111,7 @@ export const userData = [
     firstName: "Connor",
     lastName: "Park",
     major: "Computer Science",
-    imgUrl: "https://picsum.photos/id/12/200/300",
+    picture: require("../assets/icons/connor_profile.jpg"),
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     emojis: "🏈 💻 🍣 〽️ ⛳️",
     clubs: [

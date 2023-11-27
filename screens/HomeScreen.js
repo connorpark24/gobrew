@@ -7,6 +7,7 @@ import CarouselCardItem, {
 } from "../components/CarouselCardItem.js";
 import { userData } from "../constants/data.js";
 import SearchBar from "../components/SearchBar.js";
+import CarouselCardItemFullPic from "../components/CarouselCardItemFullPic.js";
 
 const HomeScreen = ({ navigation }) => {
   const isCarousel = React.useRef(null);
@@ -19,7 +20,7 @@ const HomeScreen = ({ navigation }) => {
           layout="default"
           data={userData}
           renderItem={(props) => (
-            <CarouselCardItem {...props} navigation={navigation} />
+            <CarouselCardItemFullPic {...props} navigation={navigation} />
           )}
           sliderWidth={SLIDER_WIDTH}
           itemWidth={ITEM_WIDTH}
