@@ -15,9 +15,8 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.header}>Home</Text>
       <View style={styles.carouselContainer}>
-        <SearchBar />
         <Carousel
-          layout="tinder"
+          layout="default"
           data={userData}
           renderItem={(props) => (
             <CarouselCardItem {...props} navigation={navigation} />
@@ -44,6 +43,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 40,
     marginLeft: 20,
+    marginVertical: 15,
     color: "black",
     fontWeight: "400",
   },

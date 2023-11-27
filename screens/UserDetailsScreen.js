@@ -6,6 +6,7 @@ import {
   ScrollView,
   Pressable,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
@@ -29,7 +30,19 @@ const UserDetailsScreen = ({ route, navigation }) => {
               {currentUser.firstName} {currentUser.lastName}
             </Text>
             <Text style={{ fontSize: 20 }}>{currentUser.major}</Text>
-            <Text>Connect button</Text>
+            <TouchableOpacity
+              style={{
+                backgroundColor: COLORS.primary,
+                borderRadius: 10,
+                marginTop: 10,
+                width: 200,
+                height: 40,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 18 }}>Connect</Text>
+            </TouchableOpacity>
           </View>
 
           <Image

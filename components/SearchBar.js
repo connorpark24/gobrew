@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import React, { useState } from "react";
+import { View, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const handleSearch = () => {
-    onSearch(query);
+    console.log(query);
   };
 
   return (
@@ -26,17 +26,15 @@ const SearchBar = ({ onSearch }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderRadius: 10,
-    marginVertical: 10,
-    width: '90%',
-    backgroundColor: '#ececec'
+    flexDirection: "row",
+    alignItems: "center",
+    width: "95%",
   },
   input: {
     flex: 1,
-    padding: 10,
-    backgroundColor: '#f3f3f3'
+    padding: 8,
+    backgroundColor: "#f3f3f3",
+    borderRadius: 10,
   },
   button: {
     padding: 10,

@@ -141,15 +141,18 @@ export const clubData = [
     name: "V1",
     size: "120",
     logo: require("../assets/icons/v1logo.png"),
+    description: "Ambitious group of student builders",
   },
   {
     name: "Delta Sigma Phi",
     size: "168",
     logo: require("../assets/icons/dsiglogo.png"),
+    description: "Ambitious group of student builders",
   },
   {
     name: "Upround Ventures",
     size: "95",
     logo: require("../assets/icons/uproundlogo.png"),
+    description: "Ambitious group of student builders",
   },
 ];
