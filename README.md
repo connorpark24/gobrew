@@ -1,6 +1,4 @@
-# GoBrew
-
-V1 F23 Cohort Project
+# GoBrew: V1 F23 Cohort Project
 
 #### Problem Statement
 
@@ -18,5 +16,3 @@ College students (for now) / Academically based social clubs
   1. User profiling: list past experiences, communities, and interests of people
   2. Calendar integration: get available times for people available to coffee chat
   3. Swiping feature: find others and save favorites
-
-#### Problem Statement
