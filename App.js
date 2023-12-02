@@ -9,7 +9,7 @@ import Account from "./components/Account";
 import { Session } from "@supabase/supabase-js";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import SignupScreen from "./screens/SignupScreen";
-import LoginScreen from "./screens/LoginScreen";
+import AuthNavigator from "./navigators/AuthNavigator";
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -24,7 +24,23 @@ export default function App() {
     });
   }, []);
 
-  return <LoginScreen />;
+  return (
+    <>
+      {session && session.user ? (
+        <NavigationContainer
+          styles={styles.container}
+          key={session.user.id}
+          session={session}
+        >
+          <TabNavigator />
+        </NavigationContainer>
+      ) : (
+        <NavigationContainer>
+          <AuthNavigator />
+        </NavigationContainer>
+      )}
+    </>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -32,29 +48,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-{
-  /* {session && session.user ? (
-        <Account key={session.user.id} session={session} />
-      ) : (
-        <Auth />
-      )} */
-}
-
-// import { StyleSheet, Text, View } from 'react-native';
-// import TabNavigator from './navigators/TabNavigator';
-// import { NavigationContainer } from '@react-navigation/native';
-
-// export default function App() {
-//   return (
-//     <NavigationContainer styles={styles.container}>
-//       <TabNavigator />
-//     </NavigationContainer>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-// });

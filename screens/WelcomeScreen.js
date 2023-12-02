@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { COLORS } from "../constants/theme.js";
 import { Button } from "react-native-elements";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -27,6 +27,7 @@ const WelcomeScreen = () => {
           fontWeight: "500",
         }}
         title="Continue"
+        onPress={() => navigation.navigate("Signup Screen")}
       />
     </View>
   );

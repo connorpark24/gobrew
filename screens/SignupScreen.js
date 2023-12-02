@@ -4,7 +4,7 @@ import { supabase } from "../utils/supabase";
 import { Button, Input } from "react-native-elements";
 import { COLORS } from "../constants/theme";
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -130,6 +130,7 @@ const SignupScreen = () => {
             fontWeight: "500",
             marginTop: 4,
           }}
+          onPress={() => navigation.navigate("Login Screen")}
         >
           Login
         </Text>
