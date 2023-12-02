@@ -7,22 +7,48 @@ import { COLORS } from "../constants/theme";
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  async function signUpWithEmail() {
-    setLoading(true);
-    const {
-      data: { session },
-      error,
-    } = await supabase.auth.signUp({
-      email: email,
-      password: password,
-    });
+  const validateEmail = (email) => {
+    // You can implement your email validation logic here
+    return /\S+@\S+\.\S+/.test(email);
+  };
 
-    if (error) Alert.alert(error.message);
-    if (!session)
-      Alert.alert("Please check your inbox for email verification!");
-    setLoading(false);
+  const validatePassword = (password) => {
+    // You can implement your password validation logic here
+    return password.length >= 6; // Example: Password should be at least 6 characters
+  };
+
+  async function signUpWithEmail() {
+    if (!validateEmail(email)) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
+
+    if (validateEmail(email) && validatePassword(password)) {
+      setLoading(true);
+      const {
+        data: { session },
+        error,
+      } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+      });
+
+      if (error) Alert.alert(error.message);
+      if (!session)
+        Alert.alert("Please check your inbox for email verification!");
+      setLoading(false);
+    }
   }
 
   return (
@@ -54,7 +80,7 @@ const SignupScreen = ({ navigation }) => {
             borderWidth: 0.25,
             borderBottomWidth: 0.25,
             borderRadius: 8,
-            borderColor: "grey",
+            borderColor: passwordError ? "red" : "grey",
             paddingHorizontal: 10,
             marginTop: 10,
           }}
@@ -75,34 +101,12 @@ const SignupScreen = ({ navigation }) => {
             borderWidth: 0.25,
             borderBottomWidth: 0.25,
             borderRadius: 8,
-            borderColor: "grey",
+            borderColor: passwordError ? "red" : "grey",
             paddingHorizontal: 10,
             marginTop: 10,
           }}
         />
       </View>
-      <View>
-        <Input
-          label="Retype Password"
-          rightIcon={{ type: "font-awesome", name: "lock" }}
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          secureTextEntry={true}
-          placeholder="Password"
-          autoCapitalize={"none"}
-          labelStyle={{ color: "black" }}
-          inputStyle={{ fontSize: 16 }}
-          inputContainerStyle={{
-            borderWidth: 0.25,
-            borderBottomWidth: 0.25,
-            borderRadius: 8,
-            borderColor: "grey",
-            paddingHorizontal: 10,
-            marginTop: 10,
-          }}
-        />
-      </View>
-
       <View style={{ marginTop: 10, alignItems: "center" }}>
         <Button
           buttonStyle={{

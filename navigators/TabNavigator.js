@@ -5,10 +5,10 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
 
-import ProfileScreen from "../screens/ProfileScreen";
 import ClubStackNavigator from "./ClubStackNavigator.js";
 import UserStackNavigator from "./UserStackNavigator.js";
 import FavoritesStackNavigator from "./FavoritesStackNavigator.js";
+import ProfileStackNavigator from "./ProfileStackNavigator.js";
 
 const Tab = createBottomTabNavigator();
 
@@ -58,16 +58,12 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-circle" color={color} size={30} />
           ),
-          headerRight: () => (
-            <Ionicons name="settings" size={24} style={{ marginRight: 10 }} />
-          ),
-          headerShown: true,
-          headerShadowVisible: false,
+          headerShown: false,
         }}
       />
     </Tab.Navigator>

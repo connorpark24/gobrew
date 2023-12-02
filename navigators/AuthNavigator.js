@@ -22,8 +22,8 @@ const AuthNavigator = () => {
         headerTitleAlign: "center",
         headerShadowVisible: false,
         transitionSpec: {
-          open: { animation: "timing", config: { duration: 100 } },
-          close: { animation: "timing", config: { duration: 100 } },
+          open: { animation: "timing", config: { duration: 0 } },
+          close: { animation: "timing", config: { duration: 0 } },
         },
         headerShown: false,
       }}

@@ -12,7 +12,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { userData } from "../constants/data.js";
 import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   const user = userData[0];
 
   return (
@@ -29,7 +29,10 @@ const ProfileScreen = () => {
           }}
         >
           <View>
-            <Text style={{ fontSize: 35, fontWeight: "300" }}>
+            <Text
+              style={{ fontSize: 35, fontWeight: "300" }}
+              onPress={() => navigation.navigate("Settings Screen")}
+            >
               {user.firstName} {user.lastName}
             </Text>
             <Text style={{ fontSize: 20, fontWeight: "300" }}>

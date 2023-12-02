@@ -103,6 +103,7 @@ const LoginScreen = ({ navigation }) => {
             fontWeight: "500",
             marginTop: 4,
           }}
+          onPress={() => navigation.navigate("Signup Screen")}
         >
           Sign up
         </Text>
