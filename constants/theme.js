@@ -1,15 +1,9 @@
+import { StyleSheet } from "react-native";
+
 const COLORS = {
   primary: "#0E8FFF",
   secondary: "#071F28",
-  tertiary: "#FF7754",
-
   gray: "#83829A",
-  gray2: "#C1C0C8",
-
-  white: "#F3F4F8",
-  lightWhite: "#FAFAFC",
-
-  bgColor: "#ECECf1",
 };
 
 const FONT = {
@@ -18,20 +12,9 @@ const FONT = {
   bold: "DMBold",
 };
 
-const FONTSIZES = {
-  small: 8,
-  regular: 20,
-  medium: 30,
-  large: 42,
-};
-
 const SIZES = {
-  xSmall: 10,
-  small: 12,
-  medium: 16,
-  large: 20,
-  xLarge: 24,
-  xxLarge: 32,
+  medium: 24,
+  large: 28,
 };
 
 const SHADOWS = {
@@ -47,4 +30,52 @@ const SHADOWS = {
   },
 };
 
-export { COLORS, FONT, FONTSIZES, SIZES, SHADOWS };
+const STYLES = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: "white",
+    padding: 20,
+    flexDirection: "column",
+  },
+  header: {
+    fontSize: 35,
+    color: "black",
+    fontWeight: "300",
+    marginBottom: 20,
+  },
+  inputContainer: {
+    borderWidth: 0.25,
+    borderBottomWidth: 0.25,
+    borderRadius: 8,
+    borderColor: "grey",
+    paddingHorizontal: 10,
+    marginTop: 10,
+  },
+  authButton: {
+    backgroundColor: COLORS.primary,
+    width: 320,
+    height: 50,
+    borderRadius: 12,
+  },
+});
+
+const FONTSTYLES = StyleSheet.create({
+  small: {
+    fontSize: 14,
+    fontWeight: 300,
+  },
+  regular: {
+    fontSize: 18,
+    fontWeight: 300,
+  },
+  medium: {
+    fontSize: 22,
+    fontWeight: 300,
+  },
+  large: {
+    fontSize: 30,
+    fontWeight: 300,
+  },
+});
+
+export { COLORS, FONT, SIZES, SHADOWS, STYLES, FONTSTYLES };

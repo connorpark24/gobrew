@@ -17,14 +17,18 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: COLORS.primary,
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: COLORS.secondary,
+        tabBarInactiveTintColor: "#777777",
         tabBarLabelStyle: { fontSize: 12 },
         headerTitleStyle: {
           fontSize: 20,
         },
         headerTitleAlign: "center",
         tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 70,
+          padding: 4,
+        },
       }}
     >
       <Tab.Screen
@@ -32,7 +36,7 @@ const TabNavigator = () => {
         component={UserStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home" color={color} size={30} />
+            <Ionicons name="home" color={color} size={26} />
           ),
         }}
       />
@@ -41,7 +45,7 @@ const TabNavigator = () => {
         component={ClubStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="earth-outline" color={color} size={30} />
+            <Ionicons name="earth-outline" color={color} size={26} />
           ),
           headerShown: false,
         }}
@@ -51,7 +55,7 @@ const TabNavigator = () => {
         component={FavoritesStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="heart" color={color} size={30} />
+            <Ionicons name="heart" color={color} size={26} />
           ),
           headerShown: false,
         }}
@@ -61,7 +65,7 @@ const TabNavigator = () => {
         component={ProfileStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="person-circle" color={color} size={30} />
+            <Ionicons name="person-circle" color={color} size={26} />
           ),
           headerShown: false,
         }}

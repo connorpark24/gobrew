@@ -11,28 +11,19 @@ import {
 import { clubData } from "../constants/data.js";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
+import { COLORS, SHADOWS, STYLES } from "../constants/theme.js";
 
 const ClubsScreen = ({ navigation }) => {
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Text
+    <ScrollView style={STYLES.mainContainer}>
+      <Text style={STYLES.header}>Your Clubs</Text>
+      <View
         style={{
-          fontSize: 35,
-          marginLeft: 20,
-          marginVertical: 15,
-          fontWeight: "300",
+          alignItems: "center",
+          flexDirection: "column",
+          rowGap: 20,
         }}
       >
-        Your Clubs
-      </Text>
-      <View style={{ alignItems: "center" }}>
         {clubData.map((club, index) => (
           <Pressable
             key={index}
@@ -43,7 +34,6 @@ const ClubsScreen = ({ navigation }) => {
           >
             <View
               style={{
-                display: "flex",
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center",
@@ -56,7 +46,6 @@ const ClubsScreen = ({ navigation }) => {
             </View>
             <View
               style={{
-                display: "flex",
                 flexDirection: "column",
                 rowGap: 5,
                 marginLeft: 10,
@@ -71,14 +60,12 @@ const ClubsScreen = ({ navigation }) => {
         ))}
         <Pressable
           style={{
-            display: "flex",
             flexDirection: "row",
             alignItems: "center",
             backgroundColor: "white",
             borderRadius: "10px",
-            width: "90%",
+            width: "100%",
             height: "20%",
-            margin: 10,
             ...SHADOWS.main,
             backgroundColor: COLORS.primary,
           }}
@@ -86,7 +73,6 @@ const ClubsScreen = ({ navigation }) => {
         >
           <View
             style={{
-              display: "flex",
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
@@ -109,20 +95,13 @@ const ClubsScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "column",
-    backgroundColor: "white",
-    flex: 1,
-  },
   clubCard: {
-    display: "flex",
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "white",
     borderRadius: "10px",
-    width: "90%",
+    width: "100%",
     height: "20%",
-    margin: 10,
     ...SHADOWS.main,
   },
 });

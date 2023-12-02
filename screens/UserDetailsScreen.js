@@ -3,13 +3,12 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  Pressable,
   Image,
   TouchableOpacity,
   Dimensions,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
+import { COLORS, STYLES, FONTSTYLES } from "../constants/theme.js";
 import { useState } from "react";
 
 const UserDetailsScreen = ({ route, navigation }) => {
@@ -19,10 +18,8 @@ const UserDetailsScreen = ({ route, navigation }) => {
   const [isLiked, setLiked] = useState(false);
 
   return (
-    <ScrollView
-      style={{ flexDirection: "column", flex: 1, backgroundColor: "white" }}
-    >
-      <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
+    <ScrollView style={STYLES.mainContainer}>
+      <View>
         <View
           style={{
             display: "flex",
@@ -35,9 +32,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
             <Text style={{ fontSize: 28, fontWeight: "300" }}>
               {currentUser.firstName} {currentUser.lastName}
             </Text>
-            <Text style={{ fontSize: 16, fontWeight: "300" }}>
-              {currentUser.major}
-            </Text>
+            <Text style={FONTSTYLES.small}>{currentUser.major}</Text>
             <View
               style={{
                 display: "flex",
@@ -57,7 +52,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ color: "white", fontSize: 18 }}>Connect</Text>
+                <Text style={FONTSTYLES.small}>Connect</Text>
               </TouchableOpacity>
               <Ionicons
                 name={isLiked ? "heart" : "heart-outline"}
@@ -81,12 +76,10 @@ const UserDetailsScreen = ({ route, navigation }) => {
           />
         </View>
 
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
-          {currentUser.bio}
-        </Text>
+        <Text style={FONTSTYLES.small}>{currentUser.bio}</Text>
       </View>
 
-      <View style={{ marginHorizontal: 15 }}>
+      <View>
         <View>
           {currentUser.clubs.map((club, index) => (
             <View
@@ -98,7 +91,6 @@ const UserDetailsScreen = ({ route, navigation }) => {
                 columnGap: 10,
                 height: 90,
                 padding: 5,
-                // ...SHADOWS.main,
               }}
             >
               <Image
@@ -130,12 +122,5 @@ const UserDetailsScreen = ({ route, navigation }) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    // Add any text styles here
-  },
-});
 
 export default UserDetailsScreen;

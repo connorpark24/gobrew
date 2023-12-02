@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "react-native-elements";
-import { COLORS } from "../constants/theme";
+import { COLORS, STYLES } from "../constants/theme";
 import { supabase } from "../utils/supabase";
 
 const SettingsScreen = ({ navigation }) => {
@@ -11,7 +11,7 @@ const SettingsScreen = ({ navigation }) => {
   }
 
   return (
-    <View style={{ alignItems: "center", justifyContent: "space-around" }}>
+    <View style={STYLES.mainContainer}>
       <Button
         buttonStyle={{
           backgroundColor: COLORS.primary,

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Alert, StyleSheet, View, Text } from "react-native";
 import { supabase } from "../utils/supabase";
 import { Button, Input } from "react-native-elements";
-import { COLORS } from "../constants/theme";
+import { COLORS, STYLES } from "../constants/theme";
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ const SignupScreen = ({ navigation }) => {
 
   const validatePassword = (password) => {
     // You can implement your password validation logic here
-    return password.length >= 6; // Example: Password should be at least 6 characters
+    return password.length >= 8; // Example: Password should be at least 6 characters
   };
 
   async function signUpWithEmail() {
@@ -52,7 +52,7 @@ const SignupScreen = ({ navigation }) => {
   }
 
   return (
-    <View style={{ marginTop: 40, paddingHorizontal: 24 }}>
+    <View style={STYLES.mainContainer}>
       <Text
         style={{
           color: COLORS.primary,
@@ -61,7 +61,7 @@ const SignupScreen = ({ navigation }) => {
           fontWeight: "700",
         }}
       >
-        Sign Up
+        Create Account
       </Text>
       <View style={{ marginTop: 20 }}>
         <Input
@@ -109,15 +109,9 @@ const SignupScreen = ({ navigation }) => {
       </View>
       <View style={{ marginTop: 10, alignItems: "center" }}>
         <Button
-          buttonStyle={{
-            backgroundColor: COLORS.primary,
-            width: 320,
-            height: 75,
-            marginTop: 100,
-            borderRadius: 16,
-          }}
+          buttonStyle={STYLES.authButton}
           titleStyle={{
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: "500",
           }}
           title="Sign up"
@@ -142,11 +136,5 @@ const SignupScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  mt20: {
-    marginTop: 20,
-  },
-});
 
 export default SignupScreen;

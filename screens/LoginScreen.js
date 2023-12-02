@@ -3,6 +3,7 @@ import { Alert, StyleSheet, View, Text } from "react-native";
 import { supabase } from "../utils/supabase";
 import { Button, Input } from "react-native-elements";
 import { COLORS } from "../constants/theme";
+import { STYLES } from "../constants/theme";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const LoginScreen = ({ navigation }) => {
   }
 
   return (
-    <View style={{ marginTop: 40, paddingHorizontal: 24 }}>
+    <View style={STYLES.mainContainer}>
       <Text
         style={{
           color: COLORS.primary,
@@ -45,14 +46,7 @@ const LoginScreen = ({ navigation }) => {
           autoCapitalize={"none"}
           labelStyle={{ color: "black" }}
           inputStyle={{ fontSize: 16 }}
-          inputContainerStyle={{
-            borderWidth: 0.25,
-            borderBottomWidth: 0.25,
-            borderRadius: 8,
-            borderColor: "grey",
-            paddingHorizontal: 10,
-            marginTop: 10,
-          }}
+          inputContainerStyle={STYLES.inputContainer}
         />
       </View>
       <View style={{}}>
@@ -66,27 +60,15 @@ const LoginScreen = ({ navigation }) => {
           autoCapitalize={"none"}
           labelStyle={{ color: "black" }}
           inputStyle={{ fontSize: 16 }}
-          inputContainerStyle={{
-            borderWidth: 0.25,
-            borderBottomWidth: 0.25,
-            borderRadius: 8,
-            borderColor: "grey",
-            paddingHorizontal: 10,
-            marginTop: 10,
-          }}
+          inputContainerStyle={STYLES.inputContainer}
         />
       </View>
 
       <View style={{ alignItems: "center" }}>
         <Button
-          buttonStyle={{
-            backgroundColor: COLORS.primary,
-            width: 320,
-            height: 50,
-            borderRadius: 12,
-          }}
+          buttonStyle={STYLES.authButton}
           titleStyle={{
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: "500",
           }}
           title="Log in"
@@ -111,11 +93,5 @@ const LoginScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  mt20: {
-    marginTop: 20,
-  },
-});
 
 export default LoginScreen;

@@ -5,7 +5,14 @@ import { Button } from "react-native-elements";
 
 const WelcomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: COLORS.secondary,
+      }}
+    >
       <Image
         style={{ width: 200, height: 200, margin: 10 }}
         source={require("../assets/icons/gobrewlogo.png")}
@@ -32,15 +39,5 @@ const WelcomeScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: COLORS.secondary,
-  },
-  text: {},
-});
 
 export default WelcomeScreen;

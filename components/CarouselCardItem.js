@@ -55,7 +55,7 @@ const CarouselCardItemFullPic = ({ item, index, navigation }) => {
           >
             <Text
               style={{
-                fontSize: 30,
+                fontSize: SIZES.large,
                 fontWeight: 300,
               }}
             >
