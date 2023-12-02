@@ -11,6 +11,7 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { userData } from "../constants/data.js";
 import { FONTSTYLES, STYLES } from "../constants/theme.js";
+import Tag from "../components/Tag.js";
 
 const ProfileScreen = ({ navigation }) => {
   const user = userData[0];
@@ -50,36 +51,36 @@ const ProfileScreen = ({ navigation }) => {
         <Text style={FONTSTYLES.regular}>{user.bio}</Text>
       </View>
 
-      <View>
-        <View>
-          {user.clubs.map((club, index) => (
-            <View
-              key={index}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                columnGap: 10,
-                height: 90,
-                // ...SHADOWS.main,
-              }}
-            >
-              <Image
-                style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: 10,
-                }}
-                source={club.icon}
-              />
-              <View>
-                <Text style={FONTSTYLES.regular}>{club.name}</Text>
-                <Text style={[FONTSTYLES.small, { width: 300 }]}>
-                  {club.role}
-                </Text>
-              </View>
-            </View>
-          ))}
+      <View style={{ flexDirection: "column", marginTop: 20, rowGap: 12 }}>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>Year:</Text>
+          <Tag text={"Sophomore"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>School:</Text>
+          <Tag text={"Literature, Science, and Arts"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>Internships:</Text>
+          <Tag text={"Google"} />
+          <Tag text={"Amazon"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={{ fontSize: 18 }}>Professional Roles:</Text>
+          <Tag text={"Software developer"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={{ fontSize: 18 }}>Student Orgs:</Text>
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={{ fontSize: 18 }}>Courses:</Text>
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
         </View>
       </View>
     </ScrollView>

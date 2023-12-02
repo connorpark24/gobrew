@@ -10,6 +10,7 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { COLORS, STYLES, FONTSTYLES } from "../constants/theme.js";
 import { useState } from "react";
+import Tag from "../components/Tag.js";
 
 const UserDetailsScreen = ({ route, navigation }) => {
   const { currentUser } = route.params;
@@ -32,7 +33,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
             <Text style={{ fontSize: 28, fontWeight: "300" }}>
               {currentUser.firstName} {currentUser.lastName}
             </Text>
-            <Text style={FONTSTYLES.small}>{currentUser.major}</Text>
+            <Text style={FONTSTYLES.regular}>{currentUser.major}</Text>
             <View
               style={{
                 display: "flex",
@@ -52,7 +53,14 @@ const UserDetailsScreen = ({ route, navigation }) => {
                   alignItems: "center",
                 }}
               >
-                <Text style={FONTSTYLES.small}>Connect</Text>
+                <Text
+                  style={[
+                    FONTSTYLES.regular,
+                    { color: "white", fontWeight: "500" },
+                  ]}
+                >
+                  Connect
+                </Text>
               </TouchableOpacity>
               <Ionicons
                 name={isLiked ? "heart" : "heart-outline"}
@@ -76,47 +84,39 @@ const UserDetailsScreen = ({ route, navigation }) => {
           />
         </View>
 
-        <Text style={FONTSTYLES.small}>{currentUser.bio}</Text>
+        <Text style={FONTSTYLES.regular}>{currentUser.bio}</Text>
       </View>
 
-      <View>
-        <View>
-          {currentUser.clubs.map((club, index) => (
-            <View
-              key={index}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                columnGap: 10,
-                height: 90,
-                padding: 5,
-              }}
-            >
-              <Image
-                style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: 10,
-                }}
-                source={club.icon}
-              />
-              <View style={{ width: "80%" }}>
-                <Text style={{ fontSize: 18, fontWeight: "300" }}>
-                  {club.name}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 14,
-                    width: "100%",
-                    fontWeight: "300",
-                  }}
-                >
-                  {club.role}
-                </Text>
-              </View>
-            </View>
-          ))}
+      <View style={{ flexDirection: "column", marginTop: 20, rowGap: 12 }}>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>Year:</Text>
+          <Tag text={"Sophomore"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>School:</Text>
+          <Tag text={"Literature, Science, and Arts"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>Internships:</Text>
+          <Tag text={"Google"} />
+          <Tag text={"Amazon"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>Professional Roles:</Text>
+          <Tag text={"Software developer"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>Student Orgs:</Text>
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+        </View>
+        <View style={STYLES.tagContainer}>
+          <Text style={FONTSTYLES.regular}>Courses:</Text>
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
+          <Tag text={"Software developer"} />
         </View>
       </View>
     </ScrollView>

@@ -57,24 +57,31 @@ const STYLES = StyleSheet.create({
     height: 50,
     borderRadius: 12,
   },
+  tagContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    columnGap: 8,
+    rowGap: 6,
+  },
 });
 
 const FONTSTYLES = StyleSheet.create({
   small: {
-    fontSize: 14,
-    fontWeight: 300,
+    fontSize: 12,
+    fontWeight: "300",
   },
   regular: {
-    fontSize: 18,
-    fontWeight: 300,
+    fontSize: 16,
+    fontWeight: "300",
   },
   medium: {
     fontSize: 22,
-    fontWeight: 300,
+    fontWeight: "300",
   },
   large: {
     fontSize: 30,
-    fontWeight: 300,
+    fontWeight: "300",
   },
 });
 

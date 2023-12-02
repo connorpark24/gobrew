@@ -8,19 +8,28 @@ import {
   Pressable,
   useWindowDimensions,
 } from "react-native";
-
-import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
+import { FONTSTYLES, SHADOWS } from "../constants/theme.js";
+import Tag from "./Tag.js";
 
 export const SLIDER_WIDTH = Dimensions.get("window").width;
-export const hello = Dimensions.get("window").height;
+export const SLIDER_HEIGHT = Dimensions.get("window").height;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.85);
-export const ITEM_HEIGHT = Math.round(hello * 0.63);
+export const ITEM_HEIGHT = Math.round(SLIDER_HEIGHT * 0.65);
 
-const CarouselCardItemFullPic = ({ item, index, navigation }) => {
+const CarouselCardItem = ({ item, index, navigation }) => {
   return (
     <View>
       <Pressable
-        style={styles.container}
+        style={{
+          flexDirection: "column",
+          alignItems: "center",
+          backgroundColor: "white",
+          borderRadius: 20,
+          width: ITEM_WIDTH,
+          height: ITEM_HEIGHT,
+          marginTop: 10,
+          ...SHADOWS.main,
+        }}
         key={index}
         onPress={() =>
           navigation.navigate("User Details", { currentUser: item })
@@ -38,87 +47,47 @@ const CarouselCardItemFullPic = ({ item, index, navigation }) => {
         />
         <View
           style={{
-            height: "auto",
+            flexDirection: "column",
+            padding: 14,
             width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
           }}
         >
-          <View
-            style={{
-              paddingHorizontal: 15,
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: SIZES.large,
-                fontWeight: 300,
-              }}
-            >
-              {item.firstName} {item.lastName}
-            </Text>
-            <Text style={{ fontSize: 18, fontWeight: 200 }}>{item.major}</Text>
-            <Text style={{ fontSize: 18, marginTop: 5 }}>{item.emojis}</Text>
-          </View>
-        </View>
-
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            columnGap: 10,
-            flexWrap: "wrap",
-            width: "90%",
-          }}
-        >
-          {item.clubs.map((club, index) => (
-            <Image
-              key={index}
-              style={{
-                width: ITEM_HEIGHT * 0.09,
-                height: ITEM_HEIGHT * 0.09,
-                borderRadius: 10,
-              }}
-              source={club.icon}
-            />
-          ))}
-        </View>
-
-        <View style={{ width: "95%" }}>
+          <Text style={FONTSTYLES.large}>
+            {item.firstName} {item.lastName}
+          </Text>
+          <Text style={FONTSTYLES.regular}>{item.major}</Text>
           <Text
-            style={{
-              fontSize: 14,
-              marginLeft: 10,
-              fontWeight: 200,
-            }}
+            style={[
+              FONTSTYLES.small,
+              {
+                marginTop: 8,
+              },
+            ]}
             adjustsFontSizeToFit={true}
           >
             {item.bio}
           </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              marginTop: 8,
+              rowGap: 6,
+              columnGap: 4,
+            }}
+          >
+            <Tag text={"Sophomore"} />
+            <Tag text={"Software developer"} />
+            <Tag text={"Software developer"} />
+            <Tag text={"Software developer"} />
+            <Tag text={"Software developer"} />
+          </View>
         </View>
+
+        <View style={{ width: "95%" }}></View>
       </Pressable>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: 10,
-    alignItems: "center",
-    backgroundColor: "white",
-    borderRadius: 20,
-    width: ITEM_WIDTH,
-    height: ITEM_HEIGHT,
-    marginTop: 10,
-    ...SHADOWS.main,
-  },
-});
-
-export default CarouselCardItemFullPic;
+export default CarouselCardItem;
