@@ -15,7 +15,7 @@ const ProfileStackNavigator = () => {
           fontSize: 20,
         },
         headerTitleAlign: "center",
-        headerShadowVisible: false,
+        // headerShadowVisible: false,
         title: "",
         transitionSpec: {
           open: { animation: "timing", config: { duration: 100 } },

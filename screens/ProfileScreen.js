@@ -66,21 +66,21 @@ const ProfileScreen = ({ navigation }) => {
           <Tag text={"Amazon"} />
         </View>
         <View style={STYLES.tagContainer}>
-          <Text style={{ fontSize: 18 }}>Professional Roles:</Text>
+          <Text style={FONTSTYLES.regular}>Professional Roles:</Text>
           <Tag text={"Software developer"} />
         </View>
         <View style={STYLES.tagContainer}>
-          <Text style={{ fontSize: 18 }}>Student Orgs:</Text>
+          <Text style={FONTSTYLES.regular}>Student Orgs:</Text>
           <Tag text={"Software developer"} />
           <Tag text={"Software developer"} />
           <Tag text={"Software developer"} />
         </View>
         <View style={STYLES.tagContainer}>
-          <Text style={{ fontSize: 18 }}>Courses:</Text>
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
+          <Text style={FONTSTYLES.regular}>Courses:</Text>
+          <Tag text={"EECS 281"} />
+          <Tag text={"EECS 280"} />
+          <Tag text={"EECS 281"} />
+          <Tag text={"EECS 281"} />
         </View>
       </View>
     </ScrollView>

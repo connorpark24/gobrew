@@ -56,7 +56,7 @@ const SignupScreen = ({ navigation }) => {
       <Text
         style={{
           color: COLORS.primary,
-          fontSize: 40,
+          fontSize: 36,
           marginTop: 60,
           fontWeight: "700",
         }}

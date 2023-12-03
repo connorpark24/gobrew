@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Image, ActivityIndicator } from "react-native";
 import { COLORS } from "../constants/theme.js";
 import { Button } from "react-native-elements";
 

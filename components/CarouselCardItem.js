@@ -71,20 +71,26 @@ const CarouselCardItem = ({ item, index, navigation }) => {
             style={{
               flexDirection: "row",
               flexWrap: "wrap",
-              marginTop: 8,
-              rowGap: 6,
-              columnGap: 4,
+              marginTop: 12,
+              rowGap: 8,
+              columnGap: 8,
             }}
           >
-            <Tag text={"Sophomore"} />
-            <Tag text={"Software developer"} />
-            <Tag text={"Software developer"} />
-            <Tag text={"Software developer"} />
-            <Tag text={"Software developer"} />
+            <Tag text={item.major} />
+            <Tag text={item.college} />
+            {/* Tags for Clubs */}
+            {item.clubs &&
+              item.clubs.map((club, clubIndex) => (
+                <Tag key={`club_${clubIndex}`} text={club} />
+              ))}
+
+            {/* Tags for Experiences */}
+            {item.experiences &&
+              item.experiences.map((experience, expIndex) => (
+                <Tag key={`experience_${expIndex}`} text={experience} />
+              ))}
           </View>
         </View>
-
-        <View style={{ width: "95%" }}></View>
       </Pressable>
     </View>
   );
