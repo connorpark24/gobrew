@@ -42,7 +42,7 @@ const ProfileScreen = ({ navigation }) => {
               width: 120,
               height: 120,
               borderRadius: 60,
-              marginLeft: 50,
+              marginLeft: 40,
             }}
             source={user.picture}
           />
