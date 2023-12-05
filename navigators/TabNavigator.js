@@ -12,7 +12,7 @@ import ProfileStackNavigator from "./ProfileStackNavigator.js";
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = () => {
+const TabNavigator = ({ session }) => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -62,14 +62,15 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-circle" color={color} size={26} />
           ),
           headerShown: false,
         }}
-      />
+      >
+        {(props) => <ProfileStackNavigator {...props} session={session} />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };

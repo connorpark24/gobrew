@@ -1,12 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-} from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { COLORS, STYLES, FONTSTYLES } from "../constants/theme.js";
 import { useState } from "react";
@@ -15,7 +7,6 @@ import Tag from "../components/Tag.js";
 const UserDetailsScreen = ({ route, navigation }) => {
   const { currentUser } = route.params;
 
-  const { width, height } = Dimensions.get("window");
   const [isLiked, setLiked] = useState(false);
 
   return (
@@ -52,6 +43,9 @@ const UserDetailsScreen = ({ route, navigation }) => {
                   justifyContent: "center",
                   alignItems: "center",
                 }}
+                onPress={() =>
+                  navigation.navigate("Connect", { currentUser: currentUser })
+                }
               >
                 <Text
                   style={[
@@ -94,7 +88,7 @@ const UserDetailsScreen = ({ route, navigation }) => {
         </View>
         <View style={STYLES.tagContainer}>
           <Text style={FONTSTYLES.regular}>School:</Text>
-          <Tag text={"Literature, Science, and Arts"} />
+          <Tag text={"Engineering"} />
         </View>
         <View style={STYLES.tagContainer}>
           <Text style={FONTSTYLES.regular}>Internships:</Text>
@@ -107,16 +101,18 @@ const UserDetailsScreen = ({ route, navigation }) => {
         </View>
         <View style={STYLES.tagContainer}>
           <Text style={FONTSTYLES.regular}>Student Orgs:</Text>
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
+          <Tag text={"Best Buddies of Ann Arbor"} />
+          <Tag text={"V1"} />
+          <Tag text={"Alpha Epsilon Pi"} />
         </View>
         <View style={STYLES.tagContainer}>
           <Text style={FONTSTYLES.regular}>Courses:</Text>
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
-          <Tag text={"Software developer"} />
+          <Tag text={"EECS 280"} />
+          <Tag text={"EECS 281"} />
+          <Tag text={"CHEM 125"} />
+          <Tag text={"CHEM 130"} />
+          <Tag text={"EECS 203"} />
+          <Tag text={"MATH 215"} />
         </View>
       </View>
     </ScrollView>

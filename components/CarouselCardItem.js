@@ -96,4 +96,4 @@ const CarouselCardItem = ({ item, index, navigation }) => {
   );
 };
 
-export default CarouselCardItem;
+export default React.memo(CarouselCardItem);

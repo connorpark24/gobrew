@@ -3,6 +3,7 @@ import { Alert, StyleSheet, View, Text } from "react-native";
 import { supabase } from "../utils/supabase";
 import { Button, Input } from "react-native-elements";
 import { COLORS, STYLES } from "../constants/theme";
+import { useProfileStore } from "../store/store";
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ const SignupScreen = ({ navigation }) => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { setSession } = useProfileStore();
 
   const validateEmail = (email) => {
     // You can implement your email validation logic here
@@ -36,13 +38,14 @@ const SignupScreen = ({ navigation }) => {
 
     if (validateEmail(email) && validatePassword(password)) {
       setLoading(true);
-      const {
-        data: { session },
-        error,
-      } = await supabase.auth.signUp({
+      const { user, session, error } = await supabase.auth.signUp({
         email: email,
         password: password,
       });
+
+      if (session) {
+        setSession(session);
+      }
 
       if (error) Alert.alert(error.message);
       if (!session)
@@ -107,7 +110,7 @@ const SignupScreen = ({ navigation }) => {
           }}
         />
       </View>
-      <View style={{ marginTop: 10, alignItems: "center" }}>
+      <View style={{ marginTop: 10, alignItems: "center", rowGap: 10 }}>
         <Button
           buttonStyle={STYLES.authButton}
           titleStyle={{
@@ -116,6 +119,15 @@ const SignupScreen = ({ navigation }) => {
           }}
           title="Sign up"
           onPress={() => signUpWithEmail()}
+        />
+        <Button
+          buttonStyle={STYLES.authButton}
+          titleStyle={{
+            fontSize: 18,
+            fontWeight: "500",
+          }}
+          title="Sign up with Google"
+          onPress={() => signUpWithGoogle()}
         />
       </View>
 

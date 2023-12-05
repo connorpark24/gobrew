@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, View, Text } from "react-native";
+import { Alert, StyleSheet, View, Text, TextInput } from "react-native";
 import { supabase } from "../utils/supabase";
-import { Button, Input } from "react-native-elements";
+import { Button } from "react-native-elements";
 import { COLORS } from "../constants/theme";
 import { STYLES } from "../constants/theme";
 
@@ -33,38 +33,31 @@ const LoginScreen = ({ navigation }) => {
       >
         Login
       </Text>
-      <View style={{ marginTop: 20 }}>
-        <Input
+
+      <View
+        style={{
+          alignItems: "center",
+          width: "100%",
+          rowGap: 10,
+          marginTop: 40,
+        }}
+      >
+        <TextInput
           label="Email"
-          rightIcon={{
-            type: "font-awesome",
-            name: "envelope",
-          }}
           onChangeText={(text) => setEmail(text)}
           value={email}
           placeholder="email@address.com"
           autoCapitalize={"none"}
-          labelStyle={{ color: "black" }}
-          inputStyle={{ fontSize: 16 }}
-          inputContainerStyle={STYLES.inputContainer}
+          style={STYLES.inputContainer}
         />
-      </View>
-      <View style={{}}>
-        <Input
-          label="Password"
-          rightIcon={{ type: "font-awesome", name: "lock" }}
+        <TextInput
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
           placeholder="Password"
           autoCapitalize={"none"}
-          labelStyle={{ color: "black" }}
-          inputStyle={{ fontSize: 16 }}
-          inputContainerStyle={STYLES.inputContainer}
+          style={STYLES.inputContainer}
         />
-      </View>
-
-      <View style={{ alignItems: "center" }}>
         <Button
           buttonStyle={STYLES.authButton}
           titleStyle={{

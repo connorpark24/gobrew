@@ -27,12 +27,8 @@ export default function App() {
   return (
     <>
       {session && session.user ? (
-        <NavigationContainer
-          styles={styles.container}
-          key={session.user.id}
-          session={session}
-        >
-          <TabNavigator />
+        <NavigationContainer styles={styles.container} key={session.user.id}>
+          <TabNavigator session={session} />
         </NavigationContainer>
       ) : (
         <NavigationContainer>

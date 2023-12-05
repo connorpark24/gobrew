@@ -9,11 +9,9 @@ import CarouselCardItem, {
 import { STYLES } from "../constants/theme.js";
 
 const HomeScreen = ({ navigation }) => {
-  const isCarousel = React.useRef(null);
-
   return (
     <View style={STYLES.mainContainer}>
-      <Text style={STYLES.header}>Home</Text>
+      <Text style={STYLES.header}>Discover</Text>
       <View
         style={{
           flexDirection: "column",

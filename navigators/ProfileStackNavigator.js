@@ -6,7 +6,7 @@ import React from "react";
 
 const Stack = createNativeStackNavigator();
 
-const ProfileStackNavigator = () => {
+const ProfileStackNavigator = ({ session }) => {
   return (
     <Stack.Navigator
       initialRouteName="Profile Screen"
@@ -25,7 +25,6 @@ const ProfileStackNavigator = () => {
     >
       <Stack.Screen
         name="Profile Screen"
-        component={ProfileScreen}
         options={({ navigation }) => ({
           headerRight: () => (
             <Ionicons
@@ -36,8 +35,12 @@ const ProfileStackNavigator = () => {
             />
           ),
         })}
-      />
-      <Stack.Screen name="Settings Screen" component={SettingsScreen} />
+      >
+        {(props) => <ProfileScreen {...props} session={session} />}
+      </Stack.Screen>
+      <Stack.Screen name="Settings Screen">
+        {(props) => <SettingsScreen {...props} session={session} />}
+      </Stack.Screen>
     </Stack.Navigator>
   );
 };

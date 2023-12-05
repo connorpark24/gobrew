@@ -17,7 +17,14 @@ const WelcomeScreen = ({ navigation }) => {
         style={{ width: 200, height: 200, margin: 10 }}
         source={require("../assets/icons/gobrewlogo.png")}
       />
-      <Text style={{ fontSize: 50, color: COLORS.primary, fontWeight: "500" }}>
+      <Text
+        style={{
+          fontSize: 60,
+          color: COLORS.primary,
+          fontWeight: "500",
+          textAlign: "center",
+        }}
+      >
         Welcome to GoBrew!
       </Text>
       <Button

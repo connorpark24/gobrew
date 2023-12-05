@@ -4,6 +4,7 @@ import HomeScreen from "../screens/HomeScreen";
 import UserDetailsScreen from "../screens/UserDetailsScreen";
 import SearchBar from "../components/SearchBar";
 import { COLORS } from "../constants/theme";
+import ConnectScreen from "../screens/ConnectScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,7 @@ const UserStackNavigator = () => {
         }}
       />
       <Stack.Screen name="User Details" component={UserDetailsScreen} />
+      <Stack.Screen name="Connect" component={ConnectScreen} />
     </Stack.Navigator>
   );
 };

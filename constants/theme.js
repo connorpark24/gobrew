@@ -48,8 +48,8 @@ const STYLES = StyleSheet.create({
     borderBottomWidth: 0.25,
     borderRadius: 8,
     borderColor: "grey",
-    paddingHorizontal: 10,
-    marginTop: 10,
+    padding: 10,
+    width: "90%",
   },
   authButton: {
     backgroundColor: COLORS.primary,
