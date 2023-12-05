@@ -1,10 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { Ionicons, Feather } from "react-native-vector-icons";
 
 import { COLORS } from "../constants/theme.js";
 
 import ClubStackNavigator from "./ClubStackNavigator.js";
+import MessagesNavigator from "./MessagesNavigator.js";
 import UserStackNavigator from "./UserStackNavigator.js";
 import FavoritesStackNavigator from "./FavoritesStackNavigator.js";
 import ProfileStackNavigator from "./ProfileStackNavigator.js";
@@ -37,6 +38,16 @@ const TabNavigator = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" color={color} size={26} />
           ),
+        }}
+      />
+      <Tab.Screen
+        name="Messages"
+        component={MessagesNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Feather name="message-square" color={color} size={26} />
+          ),
+          headerShown: false,
         }}
       />
       <Tab.Screen

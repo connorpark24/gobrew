@@ -10,11 +10,6 @@ const SearchBar = ({ onSearchChange }) => {
     onSearchChange(text);
   };
 
-  const handleSearchSubmit = () => {
-    onSearchChange(query);
-    setQuery("");
-  };
-
   return (
     <View style={styles.container}>
       <TextInput
