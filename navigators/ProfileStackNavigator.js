@@ -3,10 +3,13 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import ProfileScreen from "../screens/ProfileScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import React from "react";
+import { useProfileStore } from "../store/store";
 
 const Stack = createNativeStackNavigator();
 
-const ProfileStackNavigator = ({ session }) => {
+const ProfileStackNavigator = () => {
+  const { session } = useProfileStore();
+
   return (
     <Stack.Navigator
       initialRouteName="Profile Screen"

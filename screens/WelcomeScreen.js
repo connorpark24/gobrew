@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, ActivityIndicator } from "react-native";
+import { View, Text, Image } from "react-native";
 import { COLORS } from "../constants/theme.js";
 import { Button } from "react-native-elements";
 
@@ -19,7 +19,7 @@ const WelcomeScreen = ({ navigation }) => {
       />
       <Text
         style={{
-          fontSize: 60,
+          fontSize: 48,
           color: COLORS.primary,
           fontWeight: "500",
           textAlign: "center",
@@ -41,7 +41,7 @@ const WelcomeScreen = ({ navigation }) => {
           fontWeight: "500",
         }}
         title="Continue"
-        onPress={() => navigation.navigate("Signup Screen")}
+        onPress={() => navigation.navigate("Login Screen")}
       />
     </View>
   );

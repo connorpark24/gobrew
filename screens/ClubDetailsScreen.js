@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import {
   View,
   Text,
@@ -7,11 +6,8 @@ import {
   ScrollView,
   Pressable,
   Image,
-  TouchableOpacity,
 } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
-import { userData, clubData } from "../constants/data.js";
+import { userData } from "../constants/data.js";
 
 const ClubDetailsScreen = ({ route, navigation }) => {
   const { currentClub } = route.params;

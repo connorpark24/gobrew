@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { supabase } from "../utils/supabase";
 
 const useProfileStore = create((set) => ({
   firstName: "",

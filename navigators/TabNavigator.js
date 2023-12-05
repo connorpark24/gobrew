@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme.js";
+import { COLORS } from "../constants/theme.js";
 
 import ClubStackNavigator from "./ClubStackNavigator.js";
 import UserStackNavigator from "./UserStackNavigator.js";
@@ -12,7 +11,7 @@ import ProfileStackNavigator from "./ProfileStackNavigator.js";
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = ({ session }) => {
+const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -62,15 +61,14 @@ const TabNavigator = ({ session }) => {
       />
       <Tab.Screen
         name="Profile"
+        component={ProfileStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-circle" color={color} size={26} />
           ),
           headerShown: false,
         }}
-      >
-        {(props) => <ProfileStackNavigator {...props} session={session} />}
-      </Tab.Screen>
+      />
     </Tab.Navigator>
   );
 };

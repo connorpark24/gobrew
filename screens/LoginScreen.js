@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, View, Text, TextInput } from "react-native";
+import {
+  Alert,
+  View,
+  Text,
+  TextInput,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { supabase } from "../utils/supabase";
-import { Button } from "react-native-elements";
 import { COLORS } from "../constants/theme";
-import { STYLES } from "../constants/theme";
+import { STYLES, FONTSTYLES } from "../constants/theme";
+import { useProfileStore } from "../store/store";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -12,12 +19,16 @@ const LoginScreen = ({ navigation }) => {
 
   async function signInWithEmail() {
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
+    const { user, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     });
 
-    if (error) Alert.alert(error.message);
+    if (error) {
+      Alert.alert(error.message);
+    } else {
+      useProfileStore.setState({ session: user });
+    }
     setLoading(false);
   }
 
@@ -27,11 +38,11 @@ const LoginScreen = ({ navigation }) => {
         style={{
           color: COLORS.primary,
           fontSize: 36,
-          marginTop: 60,
+          marginTop: 120,
           fontWeight: "700",
         }}
       >
-        Login
+        Sign In
       </Text>
 
       <View
@@ -39,7 +50,7 @@ const LoginScreen = ({ navigation }) => {
           alignItems: "center",
           width: "100%",
           rowGap: 10,
-          marginTop: 40,
+          marginTop: 32,
         }}
       >
         <TextInput
@@ -54,22 +65,24 @@ const LoginScreen = ({ navigation }) => {
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
-          placeholder="Password"
+          placeholder="password"
           autoCapitalize={"none"}
           style={STYLES.inputContainer}
         />
-        <Button
-          buttonStyle={STYLES.authButton}
-          titleStyle={{
-            fontSize: 18,
-            fontWeight: "500",
-          }}
-          title="Log in"
+        <TouchableOpacity
+          style={STYLES.authButton}
           onPress={() => signInWithEmail()}
-        />
+          disabled={loading} // Disable the button while loading
+        >
+          <Text
+            style={[FONTSTYLES.regular, { fontWeight: "700", color: "white" }]}
+          >
+            Sign In
+          </Text>
+        </TouchableOpacity>
       </View>
 
-      <View style={{ marginTop: 24, marginLeft: 16 }}>
+      <View style={{ marginTop: 24, marginLeft: 8 }}>
         <Text style={{ fontSize: 16 }}>Don't have an account?</Text>
         <Text
           style={{

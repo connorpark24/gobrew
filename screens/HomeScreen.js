@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import { userData } from "../constants/data.js";
 import CarouselCardItem, {

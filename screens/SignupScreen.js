@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, View, Text } from "react-native";
+import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { supabase } from "../utils/supabase";
-import { Button, Input } from "react-native-elements";
-import { COLORS, STYLES } from "../constants/theme";
+import { Button } from "react-native-elements";
+import { COLORS, STYLES, FONTSTYLES } from "../constants/theme";
 import { useProfileStore } from "../store/store";
 
 const SignupScreen = ({ navigation }) => {
@@ -60,75 +60,47 @@ const SignupScreen = ({ navigation }) => {
         style={{
           color: COLORS.primary,
           fontSize: 36,
-          marginTop: 60,
+          marginTop: 120,
           fontWeight: "700",
         }}
       >
-        Create Account
+        Join GoBrew
       </Text>
-      <View style={{ marginTop: 20 }}>
-        <Input
+      <View
+        style={{
+          alignItems: "center",
+          width: "100%",
+          rowGap: 10,
+          marginTop: 32,
+        }}
+      >
+        <TextInput
           label="Email"
-          rightIcon={{
-            type: "font-awesome",
-            name: "envelope",
-          }}
           onChangeText={(text) => setEmail(text)}
           value={email}
           placeholder="email@address.com"
           autoCapitalize={"none"}
-          labelStyle={{ color: "black" }}
-          inputStyle={{ fontSize: 16 }}
-          inputContainerStyle={{
-            borderWidth: 0.25,
-            borderBottomWidth: 0.25,
-            borderRadius: 8,
-            borderColor: passwordError ? "red" : "grey",
-            paddingHorizontal: 10,
-            marginTop: 10,
-          }}
+          style={STYLES.inputContainer}
         />
-      </View>
-      <View style={{ marginTop: 12 }}>
-        <Input
-          label="Password"
-          rightIcon={{ type: "font-awesome", name: "lock" }}
+        <TextInput
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
           placeholder="Password"
           autoCapitalize={"none"}
-          labelStyle={{ color: "black" }}
-          inputStyle={{ fontSize: 16 }}
-          inputContainerStyle={{
-            borderWidth: 0.25,
-            borderBottomWidth: 0.25,
-            borderRadius: 8,
-            borderColor: passwordError ? "red" : "grey",
-            paddingHorizontal: 10,
-            marginTop: 10,
-          }}
+          style={STYLES.inputContainer}
         />
-      </View>
-      <View style={{ marginTop: 10, alignItems: "center", rowGap: 10 }}>
-        <Button
-          buttonStyle={STYLES.authButton}
-          titleStyle={{
-            fontSize: 18,
-            fontWeight: "500",
-          }}
-          title="Sign up"
+        <TouchableOpacity
+          style={STYLES.authButton}
           onPress={() => signUpWithEmail()}
-        />
-        <Button
-          buttonStyle={STYLES.authButton}
-          titleStyle={{
-            fontSize: 18,
-            fontWeight: "500",
-          }}
-          title="Sign up with Google"
-          onPress={() => signUpWithGoogle()}
-        />
+          disabled={loading} // Disable the button while loading
+        >
+          <Text
+            style={[FONTSTYLES.regular, { fontWeight: "700", color: "white" }]}
+          >
+            Create Account
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <View style={{ marginTop: 40, marginLeft: 16 }}>

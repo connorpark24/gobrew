@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Image,
   Pressable,
-  Alert,
 } from "react-native";
 import { clubData } from "../constants/data.js";
 import Ionicons from "react-native-vector-icons/Ionicons";

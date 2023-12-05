@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { View, Text, ScrollView, Image, Alert } from "react-native";
 import { userData } from "../constants/data.js";
 import { FONTSTYLES, STYLES } from "../constants/theme.js";
@@ -6,7 +6,7 @@ import Tag from "../components/Tag.js";
 import { supabase } from "../utils/supabase";
 import { useProfileStore } from "../store/store";
 
-const ProfileScreen = ({ navigation }) => {
+const ProfileScreen = () => {
   const {
     firstName,
     lastName,
@@ -23,7 +23,7 @@ const ProfileScreen = ({ navigation }) => {
   const user = userData[0];
 
   useEffect(() => {
-    if (session) getProfile();
+    getProfile();
   }, []);
 
   async function getProfile() {

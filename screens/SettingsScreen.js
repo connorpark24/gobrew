@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { View, TextInput, Alert } from "react-native";
 import { Button } from "react-native-elements";
-import { COLORS, FONTSTYLES, STYLES } from "../constants/theme";
+import { COLORS, STYLES } from "../constants/theme";
 import { supabase } from "../utils/supabase";
-import { Input } from "react-native-elements";
 import { useProfileStore } from "../store/store";
 import ImagePickerComp from "../components/ImagePicker";
 
@@ -72,6 +71,7 @@ const SettingsScreen = ({ navigation }) => {
         style={STYLES.inputContainer}
         autoCapitalize={"none"}
         autoComplete="given-name"
+        placeholder="First name"
       />
       <TextInput
         onChangeText={(text) => setLastName(text)}
@@ -80,6 +80,7 @@ const SettingsScreen = ({ navigation }) => {
         style={STYLES.inputContainer}
         autoCapitalize={"none"}
         autoComplete="family-name"
+        placeholder="Last name"
       />
       <TextInput
         onChangeText={(text) => setMajor(text)}
@@ -87,6 +88,7 @@ const SettingsScreen = ({ navigation }) => {
         defaultValue={major}
         style={STYLES.inputContainer}
         autoCapitalize={"none"}
+        placeholder="Major"
       />
       <TextInput
         onChangeText={(text) => setYear(text)}
@@ -94,13 +96,16 @@ const SettingsScreen = ({ navigation }) => {
         defaultValue={year}
         style={STYLES.inputContainer}
         autoCapitalize={"none"}
+        placeholder="Graduating year"
       />
       <TextInput
         onChangeText={(text) => setBio(text)}
         value={bio}
         defaultValue={bio}
+        multiline={true}
         autoCapitalize={"none"}
-        style={STYLES.inputContainer}
+        placeholder="Bio"
+        style={[STYLES.inputContainer, { height: 80 }]}
       />
 
       <ImagePickerComp />
