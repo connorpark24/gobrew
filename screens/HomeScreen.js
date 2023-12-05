@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { View, Text } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import { userData } from "../constants/data.js";
@@ -12,6 +12,13 @@ import SearchBar from "../components/SearchBar.js";
 const HomeScreen = ({ navigation, route }) => {
   const [filteredData, setFilteredData] = useState(userData);
   const [searchQuery, setSearchQuery] = useState("");
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerTitle: () => <SearchBar onSearchChange={handleSearchChange} />,
+    });
+  });
 
   const handleSearchChange = (query) => {
     const filtered = userData.filter((user) => {
@@ -19,11 +26,11 @@ const HomeScreen = ({ navigation, route }) => {
       return fullName.toLowerCase().includes(query.toLowerCase());
     });
     setFilteredData(filtered);
-  };
 
-  navigation.setOptions({
-    headerTitle: () => <SearchBar onSearchChange={handleSearchChange} />,
-  });
+    if (carouselRef.current) {
+      carouselRef.current.snapToItem(0);
+    }
+  };
 
   return (
     <View style={STYLES.mainContainer}>
@@ -36,6 +43,7 @@ const HomeScreen = ({ navigation, route }) => {
         }}
       >
         <Carousel
+          ref={carouselRef}
           layout="default"
           data={filteredData}
           renderItem={(props) => (
