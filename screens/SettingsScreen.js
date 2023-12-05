@@ -92,8 +92,8 @@ const SettingsScreen = ({ navigation }) => {
       />
       <TextInput
         onChangeText={(text) => setYear(text)}
-        value={year}
-        defaultValue={year}
+        value={year.toString()}
+        defaultValue={year.toString()}
         style={STYLES.inputContainer}
         autoCapitalize={"none"}
         placeholder="Graduating year"

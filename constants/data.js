@@ -5,7 +5,9 @@ export const userData = [
     major: "Computer Science",
     year: "Sophomore",
     college: "Engineering",
-    picture: { uri: "https://picsum.photos/207/305" },
+    picture: {
+      uri: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg",
+    },
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     clubs: ["V1", "Alpha Epsilon Pi", "Best Buddies of Ann Arbor"],
     experiences: ["Google", "Amazon"],
@@ -17,7 +19,9 @@ export const userData = [
     major: "Art + UX Design",
     year: "Sophomore",
     college: "School of Information",
-    picture: { uri: "https://picsum.photos/190/302" },
+    picture: {
+      uri: "https://images.pexels.com/photos/806835/pexels-photo-806835.jpeg?auto=compress&cs=tinysrgb&w=800",
+    },
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     clubs: ["V1", "Kappa Theta Pi", "SHEI Magazine"],
     experiences: ["Figma", "Microsoft"],
