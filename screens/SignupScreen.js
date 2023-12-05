@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { supabase } from "../utils/supabase";
-import { Button } from "react-native-elements";
 import { COLORS, STYLES, FONTSTYLES } from "../constants/theme";
 import { useProfileStore } from "../store/store";
 
@@ -24,6 +23,8 @@ const SignupScreen = ({ navigation }) => {
   };
 
   async function signUpWithEmail() {
+    setLoading(true);
+
     if (!validateEmail(email)) {
       setEmailError(true);
     } else {
@@ -37,18 +38,13 @@ const SignupScreen = ({ navigation }) => {
     }
 
     if (validateEmail(email) && validatePassword(password)) {
-      setLoading(true);
-      const { user, session, error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
       });
 
-      if (session) {
-        setSession(session);
-      }
-
       if (error) Alert.alert(error.message);
-      if (!session)
+      if (!data.session)
         Alert.alert("Please check your inbox for email verification!");
       setLoading(false);
     }
@@ -93,7 +89,7 @@ const SignupScreen = ({ navigation }) => {
         <TouchableOpacity
           style={STYLES.authButton}
           onPress={() => signUpWithEmail()}
-          disabled={loading} // Disable the button while loading
+          disabled={loading}
         >
           <Text
             style={[FONTSTYLES.regular, { fontWeight: "700", color: "white" }]}

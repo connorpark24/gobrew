@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Alert,
-  View,
-  Text,
-  TextInput,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { supabase } from "../utils/supabase";
 import { COLORS } from "../constants/theme";
 import { STYLES, FONTSTYLES } from "../constants/theme";
@@ -19,15 +12,13 @@ const LoginScreen = ({ navigation }) => {
 
   async function signInWithEmail() {
     setLoading(true);
-    const { user, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     });
 
     if (error) {
       Alert.alert(error.message);
-    } else {
-      useProfileStore.setState({ session: user });
     }
     setLoading(false);
   }

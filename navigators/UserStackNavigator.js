@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { useState, useEffect } from "react";
 import HomeScreen from "../screens/HomeScreen";
 import UserDetailsScreen from "../screens/UserDetailsScreen";
 import SearchBar from "../components/SearchBar";
@@ -10,27 +10,18 @@ const Stack = createNativeStackNavigator();
 const UserStackNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Main"
+      initialRouteName="Discover"
       screenOptions={{
         headerTitleStyle: {
           fontSize: 20,
         },
+        headerTitle: "",
+        headerStyle: { height: 20 },
         headerTitleAlign: "center",
-        title: "",
         headerShadowVisible: false,
-        transitionSpec: {
-          open: { animation: "timing", config: { duration: 100 } },
-          close: { animation: "timing", config: { duration: 100 } },
-        },
       }}
     >
-      <Stack.Screen
-        name="Main"
-        component={HomeScreen}
-        options={{
-          headerTitle: () => <SearchBar />,
-        }}
-      />
+      <Stack.Screen name="Discover" component={HomeScreen} />
       <Stack.Screen name="User Details" component={UserDetailsScreen} />
       <Stack.Screen name="Connect" component={ConnectScreen} />
     </Stack.Navigator>

@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearchChange }) => {
   const [query, setQuery] = useState("");
 
-  const handleSearch = () => {
-    console.log(query);
+  const handleSearchChange = (text) => {
+    setQuery(text);
+    onSearchChange(text);
+  };
+
+  const handleSearchSubmit = () => {
+    onSearchChange(query);
     setQuery("");
   };
 
@@ -16,9 +21,9 @@ const SearchBar = ({ onSearch }) => {
         style={styles.input}
         placeholder="Search..."
         value={query}
-        onChangeText={(text) => setQuery(text)}
+        onChangeText={handleSearchChange}
       />
-      <TouchableOpacity style={styles.button} onPress={handleSearch}>
+      <TouchableOpacity style={styles.button} onPress={handleSearchChange}>
         <Ionicons name="search" size={24} />
       </TouchableOpacity>
     </View>

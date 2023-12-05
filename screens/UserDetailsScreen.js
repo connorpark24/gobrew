@@ -1,5 +1,12 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
+import AntDesign from "react-native-vector-icons/AntDesign.js";
 import { COLORS, STYLES, FONTSTYLES } from "../constants/theme.js";
 import { useState } from "react";
 import Tag from "../components/Tag.js";
@@ -56,14 +63,17 @@ const UserDetailsScreen = ({ route, navigation }) => {
                   Connect
                 </Text>
               </TouchableOpacity>
-              <Ionicons
-                name={isLiked ? "heart" : "heart-outline"}
-                color={COLORS.primary}
-                size={40}
+              <Pressable
                 onPress={() => {
                   setLiked(!isLiked);
                 }}
-              />
+              >
+                <AntDesign
+                  name={isLiked ? "heart" : "hearto"}
+                  color={COLORS.primary}
+                  size={30}
+                />
+              </Pressable>
             </View>
           </View>
 
