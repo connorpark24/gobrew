@@ -9,7 +9,7 @@ import CarouselCardItem, {
 import { STYLES } from "../constants/theme.js";
 import SearchBar from "../components/SearchBar.js";
 
-const HomeScreen = ({ navigation, route }) => {
+const HomeScreen = ({ navigation }) => {
   const [filteredData, setFilteredData] = useState(userData);
   const [searchQuery, setSearchQuery] = useState("");
   const carouselRef = useRef(null);

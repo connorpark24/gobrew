@@ -13,16 +13,8 @@ const ClubStackNavigator = () => {
     <Stack.Navigator
       initialRouteName="Clubs Screen"
       screenOptions={{
-        headerTitleStyle: {
-          fontSize: 20,
-        },
-        headerTitleAlign: "center",
         headerShadowVisible: false,
         title: "",
-        transitionSpec: {
-          open: { animation: "timing", config: { duration: 100 } },
-          close: { animation: "timing", config: { duration: 100 } },
-        },
       }}
     >
       <Stack.Screen
@@ -32,13 +24,7 @@ const ClubStackNavigator = () => {
           headerTitle: () => <SearchBar />,
         }}
       />
-      <Stack.Screen
-        name="Join Network"
-        component={JoinNetworkScreen}
-        options={{
-          headerBackTitleVisible: true,
-        }}
-      />
+      <Stack.Screen name="Join Network" component={JoinNetworkScreen} />
       <Stack.Screen name="Club Details" component={ClubDetailsScreen} />
       <Stack.Screen name="User Details" component={UserDetailsScreen} />
     </Stack.Navigator>

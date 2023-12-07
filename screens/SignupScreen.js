@@ -7,47 +7,50 @@ import { useProfileStore } from "../store/store";
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  // const [emailError, setEmailError] = useState(false);
+  // const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { setSession } = useProfileStore();
 
-  const validateEmail = (email) => {
-    // You can implement your email validation logic here
-    return /\S+@\S+\.\S+/.test(email);
-  };
+  // const validateEmail = (email) => {
+  //   // You can implement your email validation logic here
+  //   return /\S+@\S+\.\S+/.test(email);
+  // };
 
-  const validatePassword = (password) => {
-    // You can implement your password validation logic here
-    return password.length >= 8; // Example: Password should be at least 6 characters
-  };
+  // const validatePassword = (password) => {
+  //   // You can implement your password validation logic here
+  //   return password.length >= 8; // Example: Password should be at least 6 characters
+  // };
 
   async function signUpWithEmail() {
+    // if (!validateEmail(email)) {
+    //   setEmailError(true);
+    // } else {
+    //   setEmailError(false);
+    // }
+
+    // if (!validatePassword(password)) {
+    //   setPasswordError(true);
+    // } else {
+    //   setPasswordError(false);
+    // }
+
+    // if (validateEmail(email) && validatePassword(password)) {
     setLoading(true);
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
 
-    if (!validateEmail(email)) {
-      setEmailError(true);
-    } else {
-      setEmailError(false);
+    if (error) {
+      Alert.alert(error.message);
+      console.log(error);
     }
-
-    if (!validatePassword(password)) {
-      setPasswordError(true);
-    } else {
-      setPasswordError(false);
-    }
-
-    if (validateEmail(email) && validatePassword(password)) {
-      const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
-      });
-
-      if (error) Alert.alert(error.message);
-      if (!data.session)
-        Alert.alert("Please check your inbox for email verification!");
-      setLoading(false);
-    }
+    if (!session)
+      Alert.alert("Please check your inbox for email verification!");
+    setLoading(false);
   }
 
   return (

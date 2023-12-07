@@ -1,9 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Feather } from "react-native-vector-icons";
-
-import { COLORS } from "../constants/theme.js";
-
 import ClubStackNavigator from "./ClubStackNavigator.js";
 import MessagesNavigator from "./MessagesNavigator.js";
 import UserStackNavigator from "./UserStackNavigator.js";
@@ -17,16 +14,9 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: COLORS.secondary,
-        tabBarInactiveTintColor: "#777777",
-        tabBarLabelStyle: { fontSize: 12 },
-        headerTitleStyle: {
-          fontSize: 20,
-        },
-        headerTitleAlign: "center",
         tabBarShowLabel: false,
         tabBarStyle: {
-          height: 70,
+          height: 72,
           padding: 4,
         },
       }}
@@ -47,7 +37,6 @@ const TabNavigator = () => {
           tabBarIcon: ({ color }) => (
             <Feather name="message-square" color={color} size={26} />
           ),
-          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -57,7 +46,6 @@ const TabNavigator = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="earth-outline" color={color} size={26} />
           ),
-          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -67,7 +55,6 @@ const TabNavigator = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="heart" color={color} size={26} />
           ),
-          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -77,7 +64,6 @@ const TabNavigator = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-circle" color={color} size={26} />
           ),
-          headerShown: false,
         }}
       />
     </Tab.Navigator>

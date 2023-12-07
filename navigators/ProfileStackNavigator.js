@@ -8,26 +8,18 @@ import { useProfileStore } from "../store/store";
 const Stack = createNativeStackNavigator();
 
 const ProfileStackNavigator = () => {
-  const { session } = useProfileStore();
-
   return (
     <Stack.Navigator
       initialRouteName="Profile Screen"
       screenOptions={{
-        headerTitleStyle: {
-          fontSize: 20,
-        },
         headerTitleAlign: "center",
-        // headerShadowVisible: false,
+        headerShadowVisible: false,
         title: "",
-        transitionSpec: {
-          open: { animation: "timing", config: { duration: 100 } },
-          close: { animation: "timing", config: { duration: 100 } },
-        },
       }}
     >
       <Stack.Screen
         name="Profile Screen"
+        component={ProfileScreen}
         options={({ navigation }) => ({
           headerRight: () => (
             <Ionicons
@@ -38,12 +30,8 @@ const ProfileStackNavigator = () => {
             />
           ),
         })}
-      >
-        {(props) => <ProfileScreen {...props} session={session} />}
-      </Stack.Screen>
-      <Stack.Screen name="Settings Screen">
-        {(props) => <SettingsScreen {...props} session={session} />}
-      </Stack.Screen>
+      />
+      <Stack.Screen name="Settings Screen" component={SettingsScreen} />
     </Stack.Navigator>
   );
 };

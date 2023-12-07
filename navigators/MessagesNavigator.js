@@ -1,27 +1,22 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import MessagesScreen from "../screens/MessagesScreen";
+import ChatScreen from "../screens/ChatScreen";
 
 const Stack = createNativeStackNavigator();
 
 const MessagesNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Welcome Screen"
+      initialRouteName="Messages Screen"
       screenOptions={{
-        headerTitleStyle: {
-          fontSize: 20,
-        },
         headerTitleAlign: "center",
         headerShadowVisible: false,
-        transitionSpec: {
-          open: { animation: "timing", config: { duration: 0 } },
-          close: { animation: "timing", config: { duration: 0 } },
-        },
-        headerShown: false,
+        title: "",
       }}
     >
-      <Stack.Screen name="Welcome Screen" component={MessagesScreen} />
+      <Stack.Screen name="Messages Screen" component={MessagesScreen} />
+      <Stack.Screen name="Chat Screen" component={ChatScreen} />
     </Stack.Navigator>
   );
 };

@@ -34,13 +34,13 @@ const STYLES = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: "white",
-    padding: 20,
+    padding: 15,
     flexDirection: "column",
   },
   header: {
     fontSize: 35,
     color: "black",
-    fontWeight: "300",
+    fontWeight: "600",
     marginBottom: 20,
   },
   inputContainer: {
