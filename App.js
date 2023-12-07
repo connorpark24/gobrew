@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "./utils/supabase";
 import AuthNavigator from "./navigators/AuthNavigator";
 import { useProfileStore } from "./store/store";
+require("dotenv").config();
 
 export default function App() {
   const { session, setSession } = useProfileStore();
