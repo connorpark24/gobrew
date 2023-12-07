@@ -72,6 +72,7 @@ const ChatScreen = () => {
             borderRadius: 8,
             marginRight: 8,
           }}
+          placeholder={"Message..."}
           value={inputText}
           onChangeText={(text) => setInputText(text)}
         />

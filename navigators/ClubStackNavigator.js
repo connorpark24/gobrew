@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import ClubsScreen from "../screens/ClubsScreen";
+import GroupsScreen from "../screens/ClubsScreen";
 import JoinNetworkScreen from "../screens/JoinNetworkScreen";
 import ClubDetailsScreen from "../screens/ClubDetailsScreen";
 import UserDetailsScreen from "../screens/UserDetailsScreen";
@@ -19,7 +19,7 @@ const ClubStackNavigator = () => {
     >
       <Stack.Screen
         name="Clubs Screen"
-        component={ClubsScreen}
+        component={GroupsScreen}
         options={{
           headerTitle: () => <SearchBar />,
         }}

@@ -12,10 +12,10 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { COLORS, SHADOWS, STYLES } from "../constants/theme.js";
 
-const ClubsScreen = ({ navigation }) => {
+const GroupsScreen = ({ navigation }) => {
   return (
     <ScrollView style={STYLES.mainContainer}>
-      <Text style={STYLES.header}>Your Clubs</Text>
+      <Text style={STYLES.header}>Your Groups</Text>
       <View
         style={{
           alignItems: "center",
@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ClubsScreen;
+export default GroupsScreen;

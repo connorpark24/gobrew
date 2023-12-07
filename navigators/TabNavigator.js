@@ -19,6 +19,7 @@ const TabNavigator = () => {
           height: 72,
           padding: 4,
         },
+        unmountOnBlur: true,
       }}
     >
       <Tab.Screen
