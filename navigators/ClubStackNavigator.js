@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import GroupsScreen from "../screens/ClubsScreen";
-import JoinNetworkScreen from "../screens/JoinNetworkScreen";
-import ClubDetailsScreen from "../screens/ClubDetailsScreen";
-import UserDetailsScreen from "../screens/UserDetailsScreen";
+import GroupsScreen from "../screens/clubs/ClubsScreen";
+import JoinNetworkScreen from "../screens/clubs/JoinNetworkScreen";
+import ClubDetailsScreen from "../screens/clubs/ClubDetailsScreen";
+import UserDetailsScreen from "../screens/clubs/UserDetailsScreen";
 import SearchBar from "../components/SearchBar";
 
 const Stack = createNativeStackNavigator();

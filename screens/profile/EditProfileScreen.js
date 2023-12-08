@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import {
   View,
-  TextInput,
   Alert,
   Text,
   ScrollView,
   Image,
   TouchableOpacity,
 } from "react-native";
-import { Button } from "react-native-elements";
-import { COLORS, STYLES } from "../constants/theme";
-import { supabase } from "../utils/supabase";
-import { useProfileStore } from "../store/store";
-import ImagePickerComp from "../components/ImagePicker";
-import { userData } from "../constants/data";
+import { COLORS, STYLES } from "../../constants/theme";
+import { supabase } from "../../utils/supabase";
+import { useProfileStore } from "../../store/store";
+import ImagePickerComp from "../../components/ImagePicker";
+import ProfileInput from "../../components/ProfileInput";
 
 const EditProfileScreen = () => {
   const {
@@ -51,6 +49,9 @@ const EditProfileScreen = () => {
         major: major,
         year: parseInt(year),
         bio: bio,
+        student_groups: studentGroups,
+        experiences: experiences,
+        linkedin_profile: linkedin,
         updated_at: new Date(),
       };
 
@@ -135,46 +136,31 @@ const EditProfileScreen = () => {
           multiline
         />
       </View>
-      <Button
-        buttonStyle={{
+      <TouchableOpacity
+        style={{
           backgroundColor: COLORS.primary,
           width: 320,
           height: 40,
           borderRadius: 12,
           alignSelf: "center",
           marginTop: 20,
+          alignItems: "center",
+          justifyContent: "center",
         }}
-        titleStyle={{
-          fontSize: 16,
-          fontWeight: "500",
-        }}
-        title={"Update profile"}
         onPress={() => updateProfile()}
         disabled={loading}
-      />
+      >
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "500",
+            color: "white",
+          }}
+        >
+          Update
+        </Text>
+      </TouchableOpacity>
     </ScrollView>
-  );
-};
-
-const ProfileInput = ({
-  label,
-  value,
-  onChangeText,
-  placeholder,
-  multiline,
-}) => {
-  return (
-    <View>
-      <Text style={{ marginBottom: 4 }}>{label}</Text>
-      <TextInput
-        onChangeText={onChangeText}
-        value={value}
-        style={[STYLES.profileInputContainer, multiline && { height: 80 }]}
-        autoCapitalize="none"
-        placeholder={placeholder}
-        multiline={multiline}
-      />
-    </View>
   );
 };
 

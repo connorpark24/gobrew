@@ -7,9 +7,9 @@ import {
   Pressable,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign.js";
-import { COLORS, STYLES, FONTSTYLES } from "../constants/theme.js";
+import { COLORS, STYLES, FONTSTYLES } from "../../constants/theme.js";
 import { useState } from "react";
-import Tag from "../components/Tag.js";
+import Tag from "../../components/Tag.js";
 
 const UserDetailsScreen = ({ route, navigation }) => {
   const { currentUser } = route.params;

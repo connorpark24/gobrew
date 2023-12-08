@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   Switch,
 } from "react-native";
-import { supabase } from "../utils/supabase";
-import { COLORS } from "../constants/theme";
-import { STYLES, FONTSTYLES } from "../constants/theme";
-import { useProfileStore } from "../store/store";
+import { supabase } from "../../utils/supabase";
+import { COLORS } from "../../constants/theme";
+import { STYLES, FONTSTYLES } from "../../constants/theme";
+import { useProfileStore } from "../../store/store";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");

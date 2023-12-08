@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
-import { supabase } from "../utils/supabase";
-import { COLORS, STYLES, FONTSTYLES } from "../constants/theme";
-import { useProfileStore } from "../store/store";
+import { supabase } from "../../utils/supabase";
+import { COLORS, STYLES, FONTSTYLES } from "../../constants/theme";
+import { useProfileStore } from "../../store/store";
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");

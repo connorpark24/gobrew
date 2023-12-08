@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View, TextInput, Alert, Text } from "react-native";
 import { Button } from "react-native-elements";
-import { COLORS, STYLES } from "../constants/theme";
-import { supabase } from "../utils/supabase";
-import { useProfileStore } from "../store/store";
+import { COLORS, STYLES } from "../../constants/theme";
+import { supabase } from "../../utils/supabase";
+import { useProfileStore } from "../../store/store";
 
 const SettingsScreen = ({ navigation }) => {
   const {

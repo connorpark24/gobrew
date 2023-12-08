@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 const useProfileStore = create((set) => ({
   session: null,
+  onboarded: false,
   firstName: "",
   lastName: "",
   major: "",
@@ -12,6 +13,7 @@ const useProfileStore = create((set) => ({
   linkedin: "",
   profilePicture: "",
   setSession: (session) => set({ session }),
+  setOnboarded: (onboarded) => set({ onboarded }),
   setFirstName: (firstName) => set({ firstName }),
   setLastName: (lastName) => set({ lastName }),
   setMajor: (major) => set({ major }),

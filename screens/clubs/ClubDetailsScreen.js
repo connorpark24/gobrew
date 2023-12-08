@@ -7,7 +7,7 @@ import {
   Pressable,
   Image,
 } from "react-native";
-import { userData } from "../constants/data.js";
+import { userData } from "../../constants/data.js";
 
 const ClubDetailsScreen = ({ route, navigation }) => {
   const { currentClub } = route.params;

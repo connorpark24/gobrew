@@ -22,21 +22,18 @@ export default function App() {
 
   return (
     <>
-      {session && session.user ? (
-        <NavigationContainer styles={styles.container} key={session.user.id}>
+      {/* {session && session.user ? (
+        <NavigationContainer styles={{ flex: 1 }} key={session.user.id}>
           <TabNavigator />
         </NavigationContainer>
       ) : (
         <NavigationContainer>
           <AuthNavigator />
         </NavigationContainer>
-      )}
+      )} */}
+      <NavigationContainer>
+        {session && session.user ? <TabNavigator /> : <AuthNavigator />}
+      </NavigationContainer>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

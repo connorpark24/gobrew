@@ -1,11 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "../screens/HomeScreen";
-import UserDetailsScreen from "../screens/UserDetailsScreen";
-import ConnectScreen from "../screens/ConnectScreen";
+import HomeScreen from "../screens/home/HomeScreen";
+import UserDetailsScreen from "../screens/clubs/UserDetailsScreen";
+import ConnectScreen from "../screens/home/ConnectScreen";
 
 const Stack = createNativeStackNavigator();
 
-const UserStackNavigator = () => {
+const HomeStackNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="Discover"
@@ -20,4 +20,4 @@ const UserStackNavigator = () => {
   );
 };
 
-export default UserStackNavigator;
+export default HomeStackNavigator;

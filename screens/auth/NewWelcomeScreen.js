@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Image } from "react-native";
-import { COLORS } from "../constants/theme.js";
+import { COLORS } from "../../constants/theme.js";
 import { Button } from "react-native-elements";
 
 const NewWelcomeScreen = ({ navigation }) => {
@@ -15,7 +15,7 @@ const NewWelcomeScreen = ({ navigation }) => {
     >
       <Image
         style={{ width: 200, height: 200, margin: 10 }}
-        source={require("../assets/icons/gobrewlogo.png")}
+        source={require("../../assets/icons/gobrewlogo.png")}
       />
       <Text
         style={{

@@ -1,10 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import ProfileScreen from "../screens/ProfileScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import ProfileScreen from "../screens/profile/ProfileScreen";
+import SettingsScreen from "../screens/profile/SettingsScreen";
 import React from "react";
 import { useProfileStore } from "../store/store";
-import EditProfileScreen from "../screens/EditProfileScreen";
+import EditProfileScreen from "../screens/profile/EditProfileScreen";
 
 const Stack = createNativeStackNavigator();
 

@@ -8,16 +8,29 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from "react-native";
-import { userData } from "../constants/data.js";
-import { FONTSTYLES, STYLES, COLORS } from "../constants/theme.js";
-import Tag from "../components/Tag.js";
-import { supabase } from "../utils/supabase";
-import { useProfileStore } from "../store/store";
+import { userData } from "../../constants/data.js";
+import { FONTSTYLES, STYLES, COLORS } from "../../constants/theme.js";
+import Tag from "../../components/Tag.js";
+import { supabase } from "../../utils/supabase.js";
+import { useProfileStore } from "../../store/store.js";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const ProfileScreen = ({ navigation }) => {
-  const { firstName, lastName, major, bio, year, profilePicture, session } =
-    useProfileStore();
+  const {
+    firstName,
+    lastName,
+    major,
+    bio,
+    year,
+    profilePicture,
+    setFirstName,
+    setLastName,
+    setMajor,
+    setBio,
+    setYear,
+    setProfilePicture,
+    session,
+  } = useProfileStore();
   const user = userData[0];
 
   const [isLoading, setIsLoading] = useState(true);
@@ -38,6 +51,12 @@ const ProfileScreen = ({ navigation }) => {
       if (error && status !== 406) {
         throw error;
       }
+
+      setFirstName(data.first_name);
+      setLastName(data.last_name);
+      setMajor(data.major);
+      setYear(data.year);
+      setBio(data.bio);
     } catch (error) {
       if (error instanceof Error) {
         Alert.alert(error.message);

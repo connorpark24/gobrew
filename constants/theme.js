@@ -52,6 +52,16 @@ const STYLES = StyleSheet.create({
     width: "100%",
     height: 52,
   },
+  authButton: {
+    backgroundColor: COLORS.primary,
+    width: 320,
+    height: 40,
+    borderRadius: 12,
+    alignSelf: "center",
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   profileInputContainer: {
     borderWidth: 0.25,
     borderBottomWidth: 0.25,

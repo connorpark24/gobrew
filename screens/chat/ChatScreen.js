@@ -9,10 +9,10 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import { COLORS } from "../constants/theme";
+import { COLORS } from "../../constants/theme";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { AntDesign } from "@expo/vector-icons";
-import { supabase } from "../utils/supabase";
+import { supabase } from "../../utils/supabase";
 
 const ChatScreen = () => {
   const [messages, setMessages] = useState([]);

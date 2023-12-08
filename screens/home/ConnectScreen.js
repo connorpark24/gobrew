@@ -6,9 +6,9 @@ import {
   TextInput,
   StyleSheet,
 } from "react-native";
-import { STYLES, COLORS, FONTSTYLES } from "../constants/theme";
+import { STYLES, COLORS, FONTSTYLES } from "../../constants/theme";
 
-const ConnectScreen = ({ navigation }) => {
+const ConnectScreen = () => {
   return (
     <View style={STYLES.mainContainer}>
       <View style={styles.section}>

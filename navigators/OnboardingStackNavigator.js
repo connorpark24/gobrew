@@ -1,12 +1,12 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import SignupScreen from "../screens/auth/SignupScreen";
-import LoginScreen from "../screens/auth/LoginScreen";
-import NewWelcomeScreen from "../screens/auth/NewWelcomeScreen";
+import PersonalInfoScreen from "../screens/auth/PersonalInfoScreen";
+import ProfessionalInfoScreen from "../screens/auth/ProfessionalInfoScreen";
+import ProfilePictureScreen from "../screens/auth/ProfilePictureScreen";
 
 const Stack = createNativeStackNavigator();
 
-const AuthNavigator = () => {
+const OnboardingNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="Personal Info Screen"
@@ -24,14 +24,19 @@ const AuthNavigator = () => {
       }}
     >
       <Stack.Screen
-        name="Welcome Screen"
-        component={NewWelcomeScreen}
-        options={{ headerShown: false }}
+        name="Personal Info Screen"
+        component={PersonalInfoScreen}
       />
-      <Stack.Screen name="Signup Screen" component={SignupScreen} />
-      <Stack.Screen name="Login Screen" component={LoginScreen} />
+      <Stack.Screen
+        name="Professional Info Screen"
+        component={ProfessionalInfoScreen}
+      />
+      <Stack.Screen
+        name="Profile Picture Screen"
+        component={ProfilePictureScreen}
+      />
     </Stack.Navigator>
   );
 };
 
-export default AuthNavigator;
+export default OnboardingNavigator;
