@@ -7,34 +7,9 @@ import { useProfileStore } from "../store/store";
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [emailError, setEmailError] = useState(false);
-  // const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // const validateEmail = (email) => {
-  //   // You can implement your email validation logic here
-  //   return /\S+@\S+\.\S+/.test(email);
-  // };
-
-  // const validatePassword = (password) => {
-  //   // You can implement your password validation logic here
-  //   return password.length >= 8; // Example: Password should be at least 6 characters
-  // };
-
   async function signUpWithEmail() {
-    // if (!validateEmail(email)) {
-    //   setEmailError(true);
-    // } else {
-    //   setEmailError(false);
-    // }
-
-    // if (!validatePassword(password)) {
-    //   setPasswordError(true);
-    // } else {
-    //   setPasswordError(false);
-    // }
-
-    // if (validateEmail(email) && validatePassword(password)) {
     setLoading(true);
     const {
       data: { session },
@@ -59,7 +34,7 @@ const SignupScreen = ({ navigation }) => {
         style={{
           color: COLORS.primary,
           fontSize: 36,
-          marginTop: 120,
+          marginTop: 80,
           fontWeight: "700",
         }}
       >
@@ -79,7 +54,7 @@ const SignupScreen = ({ navigation }) => {
           value={email}
           placeholder="email@address.com"
           autoCapitalize={"none"}
-          style={STYLES.inputContainer}
+          style={STYLES.authInputContainer}
         />
         <TextInput
           onChangeText={(text) => setPassword(text)}
@@ -87,7 +62,7 @@ const SignupScreen = ({ navigation }) => {
           secureTextEntry={true}
           placeholder="Password"
           autoCapitalize={"none"}
-          style={STYLES.inputContainer}
+          style={STYLES.authInputContainer}
         />
         <TouchableOpacity
           style={STYLES.authButton}

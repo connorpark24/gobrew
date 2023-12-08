@@ -5,7 +5,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 const SearchBar = ({ onSearchChange }) => {
   const [query, setQuery] = useState("");
 
-  const handleSearchChange = () => {
+  const handleSearchChange = (text) => {
     setQuery(text);
     onSearchChange(text);
   };

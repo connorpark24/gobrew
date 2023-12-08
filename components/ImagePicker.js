@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { View, Button, Image } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { supabase } from "../utils/supabase";
 import { useProfileStore } from "../store/store";
+import { COLORS, FONTSTYLES } from "../constants/theme";
 
 const ImagePickerComp = () => {
-  const { session } = useProfileStore();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const { session, setProfilePicture } = useProfileStore();
 
   useEffect(() => {
     (async () => {
@@ -26,36 +26,25 @@ const ImagePickerComp = () => {
       quality: 1,
     });
 
-    if (!result.cancelled) {
-      const uploadedImage = await handleImageUpload(result.uri);
+    if (!result.canceled) {
+      const uploadedImage = await handleImageUpload(result.assets[0].uri);
       if (uploadedImage) {
-        setSelectedImage(uploadedImage);
+        setProfilePicture(uploadedImage);
       }
     }
   };
 
   const handleImageUpload = async (imageUri) => {
     try {
-      // Upload the image to Supabase Storage
-      const { data, error } = await supabase.storage
-        .from("your-storage-bucket-name")
-        .upload(`profile_pictures/${session.user.id}`, imageUri, {
-          contentType: "image/jpeg",
-        });
+      const { error } = await supabase
+        .from("profiles")
+        .upsert({ id: session?.user.id, profile_picture: imageUri });
 
       if (error) {
+        console.log(error);
         alert("Error uploading image to Supabase Storage");
         return null;
       }
-
-      // Save the image URL to the user's profile in the database
-      await supabase
-        .from("profiles")
-        .update({
-          profile_picture: data.Key,
-        })
-        .eq("id", session.user.id);
-
       return { uri: imageUri };
     } catch (error) {
       console.error("Error handling image upload:", error);
@@ -65,7 +54,20 @@ const ImagePickerComp = () => {
 
   return (
     <View>
-      <Button title="Update profile picture" onPress={handleImagePick} />
+      <TouchableOpacity
+        onPress={handleImagePick}
+        style={{
+          backgroundColor: COLORS.primary,
+          width: "40%",
+          borderRadius: 10,
+          justifyContent: "center",
+          alignItems: "center",
+          height: 30,
+          width: 120,
+        }}
+      >
+        <Text style={[FONTSTYLES.small, { color: "white" }]}>Upload Image</Text>
+      </TouchableOpacity>
     </View>
   );
 };

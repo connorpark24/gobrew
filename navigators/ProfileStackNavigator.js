@@ -4,6 +4,7 @@ import ProfileScreen from "../screens/ProfileScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import React from "react";
 import { useProfileStore } from "../store/store";
+import EditProfileScreen from "../screens/EditProfileScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,12 +27,13 @@ const ProfileStackNavigator = () => {
               name="settings"
               size={24}
               color="black"
-              onPress={() => navigation.navigate("Settings Screen")}
+              onPress={() => navigation.navigate("Settings")}
             />
           ),
         })}
       />
-      <Stack.Screen name="Settings Screen" component={SettingsScreen} />
+      <Stack.Screen name="Edit Profile" component={EditProfileScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
 };

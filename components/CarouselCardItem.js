@@ -1,16 +1,7 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Image,
-  Pressable,
-  useWindowDimensions,
-} from "react-native";
+import { View, Text, Dimensions, Image, Pressable } from "react-native";
 import { FONTSTYLES, SHADOWS } from "../constants/theme.js";
 import Tag from "./Tag.js";
-
 export const SLIDER_WIDTH = Dimensions.get("window").width;
 export const SLIDER_HEIGHT = Dimensions.get("window").height;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.85);

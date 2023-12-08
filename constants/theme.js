@@ -43,23 +43,33 @@ const STYLES = StyleSheet.create({
     fontWeight: "600",
     marginBottom: 20,
   },
-  inputContainer: {
+  authInputContainer: {
     borderWidth: 0.25,
     borderBottomWidth: 0.25,
     borderRadius: 8,
     borderColor: "grey",
     padding: 10,
     width: "100%",
-    height: 45,
+    height: 52,
+  },
+  profileInputContainer: {
+    borderWidth: 0.25,
+    borderBottomWidth: 0.25,
+    borderRadius: 8,
+    borderColor: "grey",
+    padding: 10,
+    width: "100%",
+    height: 40,
   },
   authButton: {
     backgroundColor: COLORS.primary,
-    width: "100%",
+    width: "90%",
     height: 45,
     marginTop: 20,
-    borderRadius: 10,
+    borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
+    alignSelf: "center",
   },
   tagContainer: {
     flexDirection: "row",
@@ -73,19 +83,19 @@ const STYLES = StyleSheet.create({
 const FONTSTYLES = StyleSheet.create({
   small: {
     fontSize: 12,
-    fontWeight: "300",
+    fontWeight: "400",
   },
   regular: {
     fontSize: 16,
-    fontWeight: "300",
+    fontWeight: "400",
   },
   medium: {
     fontSize: 22,
-    fontWeight: "300",
+    fontWeight: "400",
   },
   large: {
     fontSize: 30,
-    fontWeight: "300",
+    fontWeight: "400",
   },
 });
 

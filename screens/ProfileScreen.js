@@ -6,27 +6,18 @@ import {
   Image,
   Alert,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 import { userData } from "../constants/data.js";
 import { FONTSTYLES, STYLES, COLORS } from "../constants/theme.js";
 import Tag from "../components/Tag.js";
 import { supabase } from "../utils/supabase";
 import { useProfileStore } from "../store/store";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-const ProfileScreen = () => {
-  const {
-    firstName,
-    lastName,
-    major,
-    bio,
-    year,
-    setFirstName,
-    setLastName,
-    setMajor,
-    setBio,
-    setYear,
-    session,
-  } = useProfileStore();
+const ProfileScreen = ({ navigation }) => {
+  const { firstName, lastName, major, bio, year, profilePicture, session } =
+    useProfileStore();
   const user = userData[0];
 
   const [isLoading, setIsLoading] = useState(true);
@@ -46,14 +37,6 @@ const ProfileScreen = () => {
         .single();
       if (error && status !== 406) {
         throw error;
-      }
-
-      if (data) {
-        setFirstName(data.first_name);
-        setLastName(data.last_name);
-        setMajor(data.major);
-        setYear(data.year);
-        setBio(data.bio);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -85,6 +68,25 @@ const ProfileScreen = () => {
                   {firstName} {lastName}
                 </Text>
                 <Text style={FONTSTYLES.medium}>{major}</Text>
+                <TouchableOpacity
+                  style={{
+                    height: 36,
+                    marginTop: 8,
+                    borderRadius: 8,
+                    width: 140,
+                    backgroundColor: COLORS.primary,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "row",
+                    columnGap: 12,
+                  }}
+                  onPress={() => navigation.navigate("Edit Profile")}
+                >
+                  <Text style={[FONTSTYLES.regular, { color: "white" }]}>
+                    Edit Profile
+                  </Text>
+                  <Ionicons name="pencil" size={20} color="white" />
+                </TouchableOpacity>
               </View>
 
               <Image
@@ -93,7 +95,7 @@ const ProfileScreen = () => {
                   height: 120,
                   borderRadius: 60,
                 }}
-                source={user.picture}
+                source={profilePicture}
               />
             </View>
 

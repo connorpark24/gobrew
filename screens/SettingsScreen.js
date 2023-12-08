@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { View, TextInput, Alert } from "react-native";
+import { View, TextInput, Alert, Text } from "react-native";
 import { Button } from "react-native-elements";
 import { COLORS, STYLES } from "../constants/theme";
 import { supabase } from "../utils/supabase";
 import { useProfileStore } from "../store/store";
-import ImagePickerComp from "../components/ImagePicker";
 
 const SettingsScreen = ({ navigation }) => {
   const {
@@ -26,37 +25,6 @@ const SettingsScreen = ({ navigation }) => {
     if (error) Alert.alert(error.message);
   }
 
-  const [loading, setLoading] = useState(false);
-
-  async function updateProfile() {
-    try {
-      setLoading(true);
-      if (!session?.user) throw new Error("No user on the session!");
-
-      const updates = {
-        id: session?.user.id,
-        first_name: firstName,
-        last_name: lastName,
-        major: major,
-        year: year,
-        bio: bio,
-        updated_at: new Date(),
-      };
-
-      const { error } = await supabase.from("profiles").upsert(updates);
-
-      if (error) {
-        throw error;
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert(error.message);
-      }
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return (
     <View
       style={[
@@ -64,67 +32,7 @@ const SettingsScreen = ({ navigation }) => {
         { flexDirection: "column", alignItems: "center", rowGap: 20 },
       ]}
     >
-      <TextInput
-        onChangeText={(text) => setFirstName(text)}
-        value={firstName}
-        defaultValue={firstName}
-        style={STYLES.inputContainer}
-        autoCapitalize={"none"}
-        autoComplete="given-name"
-        placeholder="First name"
-      />
-      <TextInput
-        onChangeText={(text) => setLastName(text)}
-        value={lastName}
-        defaultValue={lastName}
-        style={STYLES.inputContainer}
-        autoCapitalize={"none"}
-        autoComplete="family-name"
-        placeholder="Last name"
-      />
-      <TextInput
-        onChangeText={(text) => setMajor(text)}
-        value={major}
-        defaultValue={major}
-        style={STYLES.inputContainer}
-        autoCapitalize={"none"}
-        placeholder="Major"
-      />
-      <TextInput
-        onChangeText={(text) => setYear(text)}
-        value={year}
-        defaultValue={year}
-        style={STYLES.inputContainer}
-        autoCapitalize={"none"}
-        placeholder="Graduating year"
-      />
-      <TextInput
-        onChangeText={(text) => setBio(text)}
-        value={bio}
-        defaultValue={bio}
-        multiline={true}
-        autoCapitalize={"none"}
-        placeholder="Bio"
-        style={[STYLES.inputContainer, { height: 80 }]}
-      />
-
-      <ImagePickerComp />
-
-      <Button
-        buttonStyle={{
-          backgroundColor: COLORS.primary,
-          width: 320,
-          height: 40,
-          borderRadius: 12,
-        }}
-        titleStyle={{
-          fontSize: 16,
-          fontWeight: "500",
-        }}
-        title={"Update profile"}
-        onPress={() => updateProfile()}
-        disabled={loading}
-      />
+      <Text style={STYLES.header}>Settings</Text>
 
       <Button
         buttonStyle={{
