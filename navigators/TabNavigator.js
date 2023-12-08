@@ -8,11 +8,12 @@ import FavoritesStackNavigator from "./FavoritesStackNavigator.js";
 import ProfileStackNavigator from "./ProfileStackNavigator.js";
 import OnboardingStackNavigator from "./OnboardingStackNavigator.js";
 import { useProfileStore } from "../store/store.js";
+import { supabase } from "../utils/supabase.js";
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
-  const { onboarded, setOnboarded } = useProfileStore();
+  const { onboarded, setOnboarded, session } = useProfileStore();
 
   async function getOnboarded() {
     try {
@@ -29,9 +30,7 @@ const TabNavigator = () => {
 
       setOnboarded(data.onboarded);
     } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert(error.message);
-      }
+      console.log(error.message);
     }
   }
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Alert } from "react-native";
 import { supabase } from "../../utils/supabase";
 import { COLORS, STYLES } from "../../constants/theme";
 import { useProfileStore } from "../../store/store";
@@ -42,6 +42,8 @@ const PersonalInfoScreen = ({ navigation }) => {
       if (error) {
         throw error;
       }
+
+      navigation.navigate("Professional Info Screen");
     } catch (error) {
       if (error instanceof Error) {
         Alert.alert(error.message);
@@ -99,7 +101,7 @@ const PersonalInfoScreen = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={STYLES.authButton}
-        onPress={() => navigation.navigate("Professional Info Screen")}
+        onPress={updateProfile}
         disabled={loading}
       >
         <Text

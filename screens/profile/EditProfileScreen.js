@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Alert,
-  Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { COLORS, STYLES } from "../../constants/theme";
 import { supabase } from "../../utils/supabase";
 import { useProfileStore } from "../../store/store";

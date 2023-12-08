@@ -17,7 +17,7 @@ const GroupsScreen = ({ navigation }) => {
         }}
       >
         {clubData.map((club, index) => (
-          <ClubCard club={club} index={index} navigation={navigation} />
+          <ClubCard club={club} key={index} navigation={navigation} />
         ))}
         <Pressable
           style={{
