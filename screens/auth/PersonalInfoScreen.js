@@ -21,6 +21,9 @@ const PersonalInfoScreen = ({ navigation }) => {
   } = useProfileStore();
 
   const [loading, setLoading] = useState(false);
+  const [isFirstNameValid, setIsFirstNameValid] = useState(true);
+  const [isLastNameValid, setIsLastNameValid] = useState(true);
+  const [isMajorValid, setIsMajorValid] = useState(true);
 
   async function updateProfile() {
     try {
@@ -72,6 +75,7 @@ const PersonalInfoScreen = ({ navigation }) => {
           value={firstName}
           onChangeText={(text) => setFirstName(text)}
           placeholder="First name"
+          valid={isFirstNameValid}
         />
         <ProfileInput
           label="Last Name"

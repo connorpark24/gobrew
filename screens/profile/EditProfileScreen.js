@@ -73,7 +73,7 @@ const EditProfileScreen = () => {
             borderRadius: 60,
             alignSelf: "center",
           }}
-          source={profilePicture}
+          source={require("../../assets/icons/default_pic.png")}
         />
         <ImagePickerComp />
       </View>

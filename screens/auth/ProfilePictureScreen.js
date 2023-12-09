@@ -16,6 +16,16 @@ const ProfilePictureScreen = ({ navigation }) => {
   const { profilePicture, setProfilePicture, setOnboarded, session } =
     useProfileStore();
 
+  const uploadImage = async (imageFile) => {
+    const filePath = `${session.user.id}/${imageFile.name}`;
+    const { data, error } = await supabase.storage
+      .from("avatars")
+      .upload(filePath, imageFile);
+
+    if (error) throw error;
+    return filePath;
+  };
+
   async function updateProfile() {
     try {
       if (!session?.user) throw new Error("No user on the session!");

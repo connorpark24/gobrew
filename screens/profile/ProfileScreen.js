@@ -22,8 +22,6 @@ const ProfileScreen = ({ navigation }) => {
     major,
     bio,
     year,
-    studentGroups,
-    experiences,
     linkedin,
     profilePicture,
     setFirstName,
@@ -31,11 +29,8 @@ const ProfileScreen = ({ navigation }) => {
     setMajor,
     setBio,
     setYear,
-    setStudentGroups,
-    setExperiences,
     setLinkedin,
     setProfilePicture,
-    setOnboarded,
   } = useProfileStore();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -47,7 +42,7 @@ const ProfileScreen = ({ navigation }) => {
       const { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `first_name, last_name, bio, year, major, student_groups, experiences, linkedin_profile`
+          `first_name, last_name, bio, year, major, student_groups, experiences, linkedin_profile, profile_picture`
         )
         .eq("id", session?.user.id)
         .single();
@@ -61,6 +56,16 @@ const ProfileScreen = ({ navigation }) => {
       setYear(data.year);
       setMajor(data.major);
       setLinkedin(data.linkedin_profile);
+
+      if (data.profile_picture) {
+        const imageUrl = supabase.storage
+          .from("images")
+          .getPublicUrl(data.profile_picture).data.publicUrl;
+        console.log(imageUrl);
+        setProfilePicture(imageUrl);
+      } else {
+        setProfilePicture(require("../../assets/icons/default_pic.png"));
+      }
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -142,7 +147,7 @@ const ProfileScreen = ({ navigation }) => {
                   height: 120,
                   borderRadius: 60,
                 }}
-                source={profilePicture}
+                source={require("../../assets/icons/default_pic.png")}
               />
             </View>
 

@@ -8,6 +8,7 @@ const ProfileInput = ({
   onChangeText,
   placeholder,
   multiline,
+  isValid,
 }) => {
   return (
     <View>

@@ -24,8 +24,8 @@ export default function App() {
   return (
     <>
       <NavigationContainer>
-        {/* {session && session.user ? <TabNavigator /> : <AuthNavigator />} */}
-        <OnboardingNavigator />
+        {session && session.user ? <TabNavigator /> : <AuthNavigator />}
+        {/* <OnboardingNavigator /> */}
       </NavigationContainer>
     </>
   );

@@ -37,17 +37,35 @@ const ImagePickerComp = () => {
 
   const handleImageUpload = async (imageUri) => {
     try {
+      const imageName = `profile_${
+        session.user.id
+      }_${new Date().getTime()}.jpg`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("images")
+        .upload(imageName);
+
+      if (uploadError) {
+        console.log("Upload error" + uploadError);
+        return null;
+      }
+
       const { error } = await supabase
         .from("profiles")
-        .upsert({ id: session?.user.id, profile_picture: imageUri });
+        .upsert({ id: session.user.id, profile_picture: imageName });
 
       if (error) {
         console.log(error);
-        alert("Error uploading image to Supabase Storage");
+        alert("Error updating user profile");
         return null;
       }
-      return { uri: imageUri };
+
+      const imageUrl = `${
+        supabase.storage.from("images").getPublicUrl(imageName).publicURL
+      }`;
+      return { uri: imageUrl };
     } catch (error) {
+      console.log("Hello");
       console.error("Error handling image upload:", error);
       return null;
     }

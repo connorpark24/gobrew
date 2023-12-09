@@ -6,17 +6,6 @@ const COLORS = {
   gray: "#83829A",
 };
 
-const FONT = {
-  regular: "DMRegular",
-  medium: "DMMedium",
-  bold: "DMBold",
-};
-
-const SIZES = {
-  medium: 24,
-  large: 28,
-};
-
 const SHADOWS = {
   main: {
     shadowColor: "#000",
@@ -109,4 +98,4 @@ const FONTSTYLES = StyleSheet.create({
   },
 });
 
-export { COLORS, FONT, SIZES, SHADOWS, STYLES, FONTSTYLES };
+export { COLORS, SHADOWS, STYLES, FONTSTYLES };
