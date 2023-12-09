@@ -6,7 +6,7 @@ import {
   TextInput,
   StyleSheet,
 } from "react-native";
-import { STYLES, COLORS, FONTSTYLES } from "../../../constants/theme";
+import { STYLES, COLORS, FONTSTYLES } from "../../constants/theme";
 
 const ConnectScreen = () => {
   return (

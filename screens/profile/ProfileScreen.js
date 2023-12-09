@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
   Linking,
 } from "react-native";
-import { FONTSTYLES, STYLES, COLORS } from "../../../constants/theme.js";
-import Tag from "../../../components/Tag.js";
+import { FONTSTYLES, STYLES, COLORS } from "../../constants/theme.js";
+import Tag from "../../components/Tag.js";
 import { useProfileStore } from "../../store/store.js";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { supabase } from "../../utils/supabase.js";

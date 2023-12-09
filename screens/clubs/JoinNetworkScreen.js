@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { STYLES } from "../../../constants/theme";
+import { STYLES } from "../../constants/theme";
 
 const JoinNetworkScreen = () => {
   return (

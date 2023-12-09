@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Alert, View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { supabase } from "../../utils/supabase";
-import { COLORS, STYLES } from "../../../constants/theme";
+import { COLORS, STYLES } from "../../constants/theme";
 import { useProfileStore } from "../../store/store";
-import ProfileInput from "../../../components/ProfileInput";
+import ProfileInput from "../../components/ProfileInput";
 
 const ProfessionalInfoScreen = ({ navigation }) => {
   const {

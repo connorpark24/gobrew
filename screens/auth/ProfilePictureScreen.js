@@ -8,9 +8,9 @@ import {
   Image,
 } from "react-native";
 import { supabase } from "../../utils/supabase";
-import { COLORS, STYLES } from "../../../constants/theme";
+import { COLORS, STYLES } from "../../constants/theme";
 import { useProfileStore } from "../../store/store";
-import ImagePickerComp from "../../../components/ImagePicker";
+import ImagePickerComp from "../../components/ImagePicker";
 
 const ProfilePictureScreen = ({ navigation }) => {
   const { profilePicture, setProfilePicture, setOnboarded, session } =

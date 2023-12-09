@@ -1,9 +1,9 @@
 import React from "react";
 import { ScrollView, View, Text, Image, Pressable } from "react-native";
-import { clubData } from "../../../constants/data.js";
+import { clubData } from "../../constants/data.js";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { COLORS, SHADOWS, STYLES } from "../../../constants/theme.js";
+import { COLORS, SHADOWS, STYLES } from "../../constants/theme.js";
 
 const GroupsScreen = ({ navigation }) => {
   return (

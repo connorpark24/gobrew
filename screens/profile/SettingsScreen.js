@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, TextInput, Alert, Text } from "react-native";
 import { Button } from "react-native-elements";
-import { COLORS, STYLES } from "../../../constants/theme";
+import { COLORS, STYLES } from "../../constants/theme";
 import { supabase } from "../../utils/supabase";
 
 const SettingsScreen = () => {

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, Text } from "react-native";
 import Carousel from "react-native-snap-carousel";
-import { userData } from "../../../constants/data.js";
+import { userData } from "../../constants/data.js";
 import CarouselCardItem, {
   SLIDER_WIDTH,
   ITEM_WIDTH,
-} from "../../../components/CarouselCardItem.js";
-import { STYLES } from "../../../constants/theme.js";
-import SearchBar from "../../../components/SearchBar.js";
+} from "../../components/CarouselCardItem.js";
+import { STYLES } from "../../constants/theme.js";
+import SearchBar from "../../components/SearchBar.js";
 
 const HomeScreen = ({ navigation }) => {
   const [filteredData, setFilteredData] = useState(userData);
