@@ -4,7 +4,7 @@ import GroupsScreen from "../screens/clubs/ClubsScreen";
 import JoinNetworkScreen from "../screens/clubs/JoinNetworkScreen";
 import ClubDetailsScreen from "../screens/clubs/ClubDetailsScreen";
 import UserDetailsScreen from "../screens/clubs/UserDetailsScreen";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../../components/SearchBar";
 
 const Stack = createNativeStackNavigator();
 

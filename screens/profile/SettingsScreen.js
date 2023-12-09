@@ -1,25 +1,10 @@
 import React, { useState } from "react";
 import { View, TextInput, Alert, Text } from "react-native";
 import { Button } from "react-native-elements";
-import { COLORS, STYLES } from "../../constants/theme";
+import { COLORS, STYLES } from "../../../constants/theme";
 import { supabase } from "../../utils/supabase";
-import { useProfileStore } from "../../store/store";
 
-const SettingsScreen = ({ navigation }) => {
-  const {
-    firstName,
-    lastName,
-    major,
-    year,
-    bio,
-    setFirstName,
-    setLastName,
-    setMajor,
-    setYear,
-    setBio,
-    session,
-  } = useProfileStore();
-
+const SettingsScreen = () => {
   async function signOut() {
     const { error } = await supabase.auth.signOut();
     if (error) Alert.alert(error.message);

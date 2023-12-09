@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Feather } from "react-native-vector-icons";
 import ClubStackNavigator from "./ClubStackNavigator.js";
@@ -14,6 +15,7 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   const { onboarded, setOnboarded, session } = useProfileStore();
+  const [loading, setLoading] = useState(true);
 
   async function getOnboarded() {
     try {
@@ -31,12 +33,18 @@ const TabNavigator = () => {
       setOnboarded(data.onboarded);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
-    getOnboarded(); // Call getOnboarded when the component mounts
-  }); // Empty dependency array ensures that the effect runs only once
+    getOnboarded();
+  });
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <>

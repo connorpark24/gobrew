@@ -8,9 +8,9 @@ import {
   Image,
 } from "react-native";
 import { supabase } from "../../utils/supabase";
-import { COLORS, STYLES } from "../../constants/theme";
+import { COLORS, STYLES } from "../../../constants/theme";
 import { useProfileStore } from "../../store/store";
-import ImagePickerComp from "../../components/ImagePicker";
+import ImagePickerComp from "../../../components/ImagePicker";
 
 const ProfilePictureScreen = ({ navigation }) => {
   const { profilePicture, setProfilePicture, setOnboarded, session } =
@@ -45,19 +45,19 @@ const ProfilePictureScreen = ({ navigation }) => {
       <Text
         style={{
           color: COLORS.primary,
-          fontSize: 36,
+          fontSize: 28,
           marginTop: 20,
           fontWeight: "700",
         }}
       >
-        Enter Info
+        Add a Profile Picture
       </Text>
-      <View style={{ alignItems: "center", rowGap: 12 }}>
+      <View style={{ alignItems: "center", rowGap: 12, marginTop: 40 }}>
         <Image
           style={{
-            width: 100,
-            height: 100,
-            borderRadius: 60,
+            width: 200,
+            height: 200,
+            borderRadius: 100,
             alignSelf: "center",
           }}
           source={profilePicture}

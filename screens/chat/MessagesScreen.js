@@ -7,8 +7,8 @@ import {
   Dimensions,
   ScrollView,
 } from "react-native";
-import { userData } from "../../constants/data.js";
-import { STYLES } from "../../constants/theme.js";
+import { userData } from "../../../constants/data.js";
+import { STYLES } from "../../../constants/theme.js";
 
 const MessagesScreen = ({ navigation }) => {
   const screenWidth = Dimensions.get("window").width;

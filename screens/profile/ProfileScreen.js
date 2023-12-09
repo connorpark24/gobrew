@@ -4,40 +4,41 @@ import {
   Text,
   ScrollView,
   Image,
-  Alert,
   ActivityIndicator,
   TouchableOpacity,
+  Linking,
 } from "react-native";
-import { userData } from "../../constants/data.js";
-import { FONTSTYLES, STYLES, COLORS } from "../../constants/theme.js";
-import Tag from "../../components/Tag.js";
-import { supabase } from "../../utils/supabase.js";
+import { FONTSTYLES, STYLES, COLORS } from "../../../constants/theme.js";
+import Tag from "../../../components/Tag.js";
 import { useProfileStore } from "../../store/store.js";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { supabase } from "../../utils/supabase.js";
 
 const ProfileScreen = ({ navigation }) => {
   const {
+    session,
     firstName,
     lastName,
     major,
     bio,
     year,
+    studentGroups,
+    experiences,
+    linkedin,
     profilePicture,
     setFirstName,
     setLastName,
     setMajor,
     setBio,
     setYear,
+    setStudentGroups,
+    setExperiences,
+    setLinkedin,
     setProfilePicture,
-    session,
+    setOnboarded,
   } = useProfileStore();
-  const user = userData[0];
 
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getProfile();
-  }, []);
 
   async function getProfile() {
     try {
@@ -45,7 +46,9 @@ const ProfileScreen = ({ navigation }) => {
 
       const { data, error, status } = await supabase
         .from("profiles")
-        .select(`first_name, last_name, major, year, bio`)
+        .select(
+          `first_name, last_name, bio, year, major, student_groups, experiences, linkedin_profile`
+        )
         .eq("id", session?.user.id)
         .single();
       if (error && status !== 406) {
@@ -54,17 +57,20 @@ const ProfileScreen = ({ navigation }) => {
 
       setFirstName(data.first_name);
       setLastName(data.last_name);
-      setMajor(data.major);
-      setYear(data.year);
       setBio(data.bio);
+      setYear(data.year);
+      setMajor(data.major);
+      setLinkedin(data.linkedin_profile);
     } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert(error.message);
-      }
+      console.log(error.message);
     } finally {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    getProfile();
+  }, []);
 
   return (
     <ScrollView style={STYLES.mainContainer}>
@@ -87,25 +93,47 @@ const ProfileScreen = ({ navigation }) => {
                   {firstName} {lastName}
                 </Text>
                 <Text style={FONTSTYLES.medium}>{major}</Text>
-                <TouchableOpacity
+                <View
                   style={{
-                    height: 36,
-                    marginTop: 8,
-                    borderRadius: 8,
-                    width: 140,
-                    backgroundColor: COLORS.primary,
-                    alignItems: "center",
-                    justifyContent: "center",
                     flexDirection: "row",
+                    alignItems: "center",
                     columnGap: 12,
+                    marginTop: 8,
                   }}
-                  onPress={() => navigation.navigate("Edit Profile")}
                 >
-                  <Text style={[FONTSTYLES.regular, { color: "white" }]}>
-                    Edit Profile
-                  </Text>
-                  <Ionicons name="pencil" size={20} color="white" />
-                </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{
+                      height: 36,
+                      borderRadius: 8,
+                      width: 140,
+                      backgroundColor: COLORS.primary,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "row",
+                      columnGap: 12,
+                    }}
+                    onPress={() => navigation.navigate("Edit Profile")}
+                  >
+                    <Text style={[FONTSTYLES.regular, { color: "white" }]}>
+                      Edit Profile
+                    </Text>
+                    <Ionicons name="pencil" size={20} color="white" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => {
+                      if (linkedin) {
+                        Linking.openURL(linkedin);
+                      } else {
+                        console.log("LinkedIn profile link not provided");
+                      }
+                    }}
+                  >
+                    <Image
+                      source={require("../../assets/icons/linkedin.png")}
+                      style={{ height: 32, width: 38 }}
+                    />
+                  </TouchableOpacity>
+                </View>
               </View>
 
               <Image

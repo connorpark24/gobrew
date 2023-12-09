@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-import { COLORS } from "../../constants/theme.js";
+import { COLORS } from "../../../constants/theme.js";
 import { Button } from "react-native-elements";
 
 const WelcomeScreen = ({ navigation }) => {

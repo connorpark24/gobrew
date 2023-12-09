@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity, Alert } from "react-native";
 import { supabase } from "../../utils/supabase";
-import { COLORS, STYLES } from "../../constants/theme";
+import { COLORS, STYLES } from "../../../constants/theme";
 import { useProfileStore } from "../../store/store";
-import ProfileInput from "../../components/ProfileInput";
+import ProfileInput from "../../../components/ProfileInput";
 
 const PersonalInfoScreen = ({ navigation }) => {
   const {
@@ -58,12 +58,12 @@ const PersonalInfoScreen = ({ navigation }) => {
       <Text
         style={{
           color: COLORS.primary,
-          fontSize: 36,
+          fontSize: 24,
           marginTop: 20,
           fontWeight: "700",
         }}
       >
-        Enter Info
+        Personal Information
       </Text>
 
       <View style={{ rowGap: 10, marginTop: 12 }}>

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import { ImageManipulator } from "expo-image-manipulator";
 import { supabase } from "../utils/supabase";
 import { useProfileStore } from "../store/store";
 import { COLORS, FONTSTYLES } from "../constants/theme";

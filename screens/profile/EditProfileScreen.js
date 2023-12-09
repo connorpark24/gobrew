@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import { COLORS, STYLES } from "../../constants/theme";
+import { COLORS, STYLES } from "../../../constants/theme";
 import { supabase } from "../../utils/supabase";
 import { useProfileStore } from "../../store/store";
-import ImagePickerComp from "../../components/ImagePicker";
-import ProfileInput from "../../components/ProfileInput";
+import ImagePickerComp from "../../../components/ImagePicker";
+import ProfileInput from "../../../components/ProfileInput";
 
 const EditProfileScreen = () => {
   const {
