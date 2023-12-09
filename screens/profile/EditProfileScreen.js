@@ -29,8 +29,31 @@ const EditProfileScreen = () => {
   } = useProfileStore();
 
   const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errors, setErrors] = useState({
+    firstName: false,
+    lastName: false,
+  });
+
+  const validateInput = () => {
+    let newErrors = {};
+    newErrors.firstName = !firstName;
+    newErrors.lastName = !lastName;
+    newErrors.major = !major;
+    newErrors.year = !year;
+    setErrors(newErrors);
+
+    return Object.values(newErrors).some((isError) => isError);
+  };
 
   async function updateProfile() {
+    if (validateInput()) {
+      setShowError(true);
+      return;
+    } else {
+      setShowError(false);
+    }
+
     try {
       setLoading(true);
       if (!session?.user) throw new Error("No user on the session!");
@@ -78,30 +101,42 @@ const EditProfileScreen = () => {
         <ImagePickerComp />
       </View>
 
+      {showError ? (
+        <Text style={{ alignSelf: "center", color: "red", marginTop: 10 }}>
+          Please fill out the first four fields!
+        </Text>
+      ) : (
+        <></>
+      )}
+
       <View style={{ rowGap: 10, marginTop: 12 }}>
         <ProfileInput
           label="First Name"
           value={firstName}
           onChangeText={(text) => setFirstName(text)}
           placeholder="First name"
+          isError={errors.firstName}
         />
         <ProfileInput
           label="Last Name"
           value={lastName}
           onChangeText={(text) => setLastName(text)}
           placeholder="Last name"
+          isError={errors.lastName}
         />
         <ProfileInput
           label="Major"
           value={major}
           onChangeText={(text) => setMajor(text)}
           placeholder="Major"
+          isError={errors.major}
         />
         <ProfileInput
           label="Graduating Year"
           value={year.toString()}
           onChangeText={(text) => setYear(text)}
           placeholder="Graduating year"
+          isError={errors.year}
         />
         <ProfileInput
           label="Student Groups"

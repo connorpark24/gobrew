@@ -11,12 +11,19 @@ const MessagesNavigator = () => {
       initialRouteName="Messages Screen"
       screenOptions={{
         headerTitleAlign: "center",
-        headerShadowVisible: false,
         title: "",
       }}
     >
-      <Stack.Screen name="Messages Screen" component={MessagesScreen} />
-      <Stack.Screen name="Chat Screen" component={ChatScreen} />
+      <Stack.Screen
+        name="Messages Screen"
+        component={MessagesScreen}
+        options={{ headerShadowVisible: false }}
+      />
+      <Stack.Screen
+        name="Chat Screen"
+        component={ChatScreen}
+        options={{ title: "Receipient name" }}
+      />
     </Stack.Navigator>
   );
 };

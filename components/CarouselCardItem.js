@@ -46,7 +46,9 @@ const CarouselCardItem = ({ item, index, navigation }) => {
           <Text style={FONTSTYLES.large}>
             {item.firstName} {item.lastName}
           </Text>
-          <Text style={FONTSTYLES.regular}>{item.major}</Text>
+          <Text style={[FONTSTYLES.regular, { marginTop: 4 }]}>
+            {item.major}
+          </Text>
           <Text
             style={[
               FONTSTYLES.small,

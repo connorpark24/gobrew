@@ -11,8 +11,6 @@ import { userData } from "../../constants/data.js";
 import { STYLES } from "../../constants/theme.js";
 
 const MessagesScreen = ({ navigation }) => {
-  const screenWidth = Dimensions.get("window").width;
-
   return (
     <ScrollView style={STYLES.mainContainer}>
       <Text style={[STYLES.header, { marginBottom: 8 }]}>Messages</Text>
@@ -25,8 +23,8 @@ const MessagesScreen = ({ navigation }) => {
       >
         <View
           style={{
-            width: screenWidth + 5,
             alignItems: "center",
+            width: "110%",
           }}
         >
           {userData.map((user, index) => (

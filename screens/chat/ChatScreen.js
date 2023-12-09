@@ -13,36 +13,37 @@ import { COLORS } from "../../constants/theme";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { AntDesign } from "@expo/vector-icons";
 import { supabase } from "../../utils/supabase";
+import { useProfileStore } from "../../store/store";
 
 const ChatScreen = () => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState("");
+  const { session } = useProfileStore();
   const height = useHeaderHeight();
 
   // useEffect(() => {
-  //   // Subscribe to the real-time updates when the component mounts
   //   const subscription = supabase
-  //     .from("messages")
+  //     .from(`messages:sender_id=eq.${session.user.id}`)
   //     .on("INSERT", (payload) => {
-  //       // Handle new messages being added in real-time
   //       setMessages((prevMessages) => [...prevMessages, payload.new]);
   //     })
   //     .subscribe();
 
-  //   // Unsubscribe from real-time updates when the component unmounts
-  //   return () => {
-  //     subscription.unsubscribe();
-  //   };
-  // }, []);
+  //   return () => subscription.unsubscribe();
+  // }, [session.user.id]);
 
   const handleSend = async () => {
     if (inputText.trim() === "") {
       return;
     }
 
-    const { data, error } = await supabase
-      .from("messages")
-      .upsert([{ text: inputText, sender: "user" }]);
+    const messageData = {
+      text: inputText,
+      sender_id: session.user.id,
+      receiver_id: 1,
+    };
+
+    const { error } = await supabase.from("messages").upsert(messageData);
 
     if (error) {
       console.error("Error sending message:", error);

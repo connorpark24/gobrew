@@ -97,13 +97,15 @@ const ProfileScreen = ({ navigation }) => {
                 <Text style={FONTSTYLES.large}>
                   {firstName} {lastName}
                 </Text>
-                <Text style={FONTSTYLES.medium}>{major}</Text>
+                <Text style={[FONTSTYLES.medium, { marginTop: 4 }]}>
+                  {major}
+                </Text>
                 <View
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
                     columnGap: 12,
-                    marginTop: 8,
+                    marginTop: 16,
                   }}
                 >
                   <TouchableOpacity

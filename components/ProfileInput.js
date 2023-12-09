@@ -8,7 +8,7 @@ const ProfileInput = ({
   onChangeText,
   placeholder,
   multiline,
-  isValid,
+  isError,
 }) => {
   return (
     <View>
@@ -16,7 +16,16 @@ const ProfileInput = ({
       <TextInput
         onChangeText={onChangeText}
         value={value}
-        style={[STYLES.profileInputContainer, multiline && { height: 80 }]}
+        style={[
+          STYLES.profileInputContainer,
+          multiline && { height: 80 },
+          isError
+            ? {
+                borderColor: "red",
+                borderWidth: 1,
+              }
+            : null,
+        ]}
         autoCapitalize="none"
         placeholder={placeholder}
         multiline={multiline}

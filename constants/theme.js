@@ -13,7 +13,7 @@ const SHADOWS = {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.15,
     shadowRadius: 5.84,
     elevation: 5,
   },
@@ -53,7 +53,6 @@ const STYLES = StyleSheet.create({
   },
   profileInputContainer: {
     borderWidth: 0.25,
-    borderBottomWidth: 0.25,
     borderRadius: 8,
     borderColor: "grey",
     padding: 10,
