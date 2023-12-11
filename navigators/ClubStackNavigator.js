@@ -17,13 +17,7 @@ const ClubStackNavigator = () => {
         title: "",
       }}
     >
-      <Stack.Screen
-        name="Clubs Screen"
-        component={GroupsScreen}
-        options={{
-          headerTitle: () => <SearchBar />,
-        }}
-      />
+      <Stack.Screen name="Clubs Screen" component={GroupsScreen} />
       <Stack.Screen name="Join Network" component={JoinNetworkScreen} />
       <Stack.Screen name="Club Details" component={ClubDetailsScreen} />
       <Stack.Screen name="User Details" component={UserDetailsScreen} />

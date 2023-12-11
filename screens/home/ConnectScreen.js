@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,11 +7,42 @@ import {
   StyleSheet,
 } from "react-native";
 import { STYLES, COLORS, FONTSTYLES } from "../../constants/theme";
+import { useProfileStore } from "../../store/store";
+import { supabase } from "../../utils/supabase";
 
-const ConnectScreen = () => {
+const ConnectScreen = ({ route, navigation }) => {
+  const { currentUser } = route.params;
+
+  const { session } = useProfileStore();
+  const [message, setMessage] = useState("");
+
+  const handleConnect = async () => {
+    try {
+      const { error } = await supabase.from("connects").upsert({
+        requester_id: session?.user.id,
+        advisor_id: currentUser.id,
+        message: message,
+        date: new Date(),
+      });
+
+      if (error) {
+        console.error("Error creating connect request:", error);
+        return;
+      }
+
+      setMessage(""); // Clear the message input field if needed
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <View style={STYLES.mainContainer}>
-      <View style={styles.section}>
+      <View
+        style={{
+          marginBottom: 20,
+        }}
+      >
         <Text style={FONTSTYLES.medium}>Google Calendar Availability</Text>
         {/* Display Google Calendar availability here */}
         <Text>Monday: 9 AM - 5 PM</Text>
@@ -23,8 +54,18 @@ const ConnectScreen = () => {
           style={styles.messageInput}
           multiline
           placeholder="Leave a message here..."
+          value={message}
+          onChangeText={(text) => setMessage(text)}
         />
-        <TouchableOpacity style={styles.connectButton}>
+        <TouchableOpacity
+          style={{
+            backgroundColor: COLORS.primary,
+            padding: 10,
+            borderRadius: 8,
+            alignItems: "center",
+          }}
+          onPress={handleConnect}
+        >
           <Text style={styles.connectButtonText}>Connect</Text>
         </TouchableOpacity>
       </View>
@@ -33,9 +74,6 @@ const ConnectScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  section: {
-    marginBottom: 20,
-  },
   sectionTitle: {
     fontSize: 18,
     fontWeight: "bold",
@@ -48,12 +86,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     marginBottom: 10,
-  },
-  connectButton: {
-    backgroundColor: COLORS.primary,
-    padding: 10,
-    borderRadius: 8,
-    alignItems: "center",
   },
   connectButtonText: {
     color: "white",

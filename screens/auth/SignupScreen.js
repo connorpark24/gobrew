@@ -21,7 +21,7 @@ const SignupScreen = ({ navigation }) => {
 
     if (error) {
       Alert.alert(error.message);
-      console.log(error);
+      console.log("Signup error: " + error);
     }
     if (!session)
       Alert.alert("Please check your inbox for email verification!");

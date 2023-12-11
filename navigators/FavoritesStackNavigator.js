@@ -12,6 +12,7 @@ const FavoritesStackNavigator = () => {
         headerTitleStyle: {
           fontSize: 20,
         },
+        headerShown: false,
         headerTitleAlign: "center",
         title: "",
       }}

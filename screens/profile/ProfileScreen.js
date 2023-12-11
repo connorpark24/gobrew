@@ -67,7 +67,7 @@ const ProfileScreen = ({ navigation }) => {
         setProfilePicture(require("../../assets/icons/default_pic.png"));
       }
     } catch (error) {
-      console.log(error.message);
+      console.log("Profile error" + error.message);
     } finally {
       setIsLoading(false);
     }

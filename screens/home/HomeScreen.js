@@ -1,36 +1,53 @@
-import React, { useState, useEffect, useRef } from "react";
-import { View, Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, Pressable } from "react-native";
 import Carousel from "react-native-snap-carousel";
-import { userData } from "../../constants/data.js";
 import CarouselCardItem, {
   SLIDER_WIDTH,
   ITEM_WIDTH,
 } from "../../components/CarouselCardItem.js";
 import { STYLES } from "../../constants/theme.js";
-import SearchBar from "../../components/SearchBar.js";
+import { SimpleLineIcons, AntDesign } from "react-native-vector-icons";
+import { supabase } from "../../utils/supabase.js";
 
 const HomeScreen = ({ navigation }) => {
-  const [filteredData, setFilteredData] = useState(userData);
-  const [searchQuery, setSearchQuery] = useState("");
-  const carouselRef = useRef(null);
+  const [isLiked, setLiked] = useState(false);
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     navigation.setOptions({
-      headerTitle: () => <SearchBar onSearchChange={handleSearchChange} />,
+      headerRight: () => (
+        <View style={{ flexDirection: "row", columnGap: 20 }}>
+          <Pressable
+            onPress={() => {
+              setLiked(!isLiked);
+              navigation.navigate("Notifications");
+            }}
+          >
+            <AntDesign name="exclamationcircleo" size={22} />
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              setLiked(!isLiked);
+              navigation.navigate("Favorites");
+            }}
+          >
+            <SimpleLineIcons name="heart" size={22} />
+          </Pressable>
+        </View>
+      ),
     });
-  });
 
-  const handleSearchChange = (query) => {
-    const filtered = userData.filter((user) => {
-      const fullName = `${user.firstName} ${user.lastName}`;
-      return fullName.toLowerCase().includes(query.toLowerCase());
-    });
-    setFilteredData(filtered);
-
-    if (carouselRef.current) {
-      carouselRef.current.snapToItem(0);
+    async function fetchUserData() {
+      const { data, error } = await supabase.from("profiles").select();
+      if (error) {
+        console.error("Error fetching user data:", error);
+      } else {
+        setUserData(data);
+      }
     }
-  };
+
+    fetchUserData();
+  }, []);
 
   return (
     <View style={STYLES.mainContainer}>
@@ -43,9 +60,8 @@ const HomeScreen = ({ navigation }) => {
         }}
       >
         <Carousel
-          ref={carouselRef}
           layout="default"
-          data={filteredData}
+          data={userData}
           renderItem={(props) => (
             <CarouselCardItem {...props} navigation={navigation} />
           )}

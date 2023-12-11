@@ -10,34 +10,46 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { supabase } from "../../utils/supabase.js";
 import { COLORS, SHADOWS, STYLES } from "../../constants/theme.js";
+import { useProfileStore } from "../../store/store.js";
 
 const GroupsScreen = ({ navigation }) => {
-  const [groups, setGroups] = useState([]);
+  const [userGroups, setUserGroups] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { session } = useProfileStore();
 
   useEffect(() => {
-    const fetchGroups = async () => {
-      try {
-        const { data, error } = await supabase
+    async function fetchUserClubs() {
+      const { data, error } = await supabase
+        .from("memberships")
+        .select(`user_id, group_id`)
+        .eq("user_id", session?.user.id);
+
+      if (error) {
+        console.error("Error fetching user's club memberships:", error);
+      } else {
+        const clubIds = data.map((membership) => membership.group_id);
+
+        const { data: clubsData, error: clubsError } = await supabase
           .from("groups")
-          .select(`name, size`);
-        console.log(data);
-        if (error) throw error;
-        setGroups(data);
-      } catch (error) {
-        console.error("Error fetching groups:", error);
-      } finally {
-        setLoading(false);
+          .select()
+          .in("id", clubIds);
+
+        if (clubsError) {
+          console.error("Error fetching user's clubs:", clubsError);
+        } else {
+          setUserGroups(clubsData);
+        }
       }
-    };
-    fetchGroups();
+    }
+
+    fetchUserClubs();
   }, []);
 
   return (
     <ScrollView style={STYLES.mainContainer}>
       <Text style={STYLES.header}>Your Groups</Text>
       {loading ? (
-        <ActivityIndicator size="large" color={COLORS.primary} />
+        <ActivityIndicator size="small" color={COLORS.primary} />
       ) : (
         <View
           style={{
@@ -46,7 +58,7 @@ const GroupsScreen = ({ navigation }) => {
             rowGap: 20,
           }}
         >
-          {groups.map((club, index) => (
+          {userGroups.map((club, index) => (
             <ClubCard club={club} key={index} navigation={navigation} />
           ))}
           <Pressable

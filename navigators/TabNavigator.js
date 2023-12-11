@@ -5,7 +5,6 @@ import { Ionicons, Feather } from "react-native-vector-icons";
 import ClubStackNavigator from "./ClubStackNavigator.js";
 import MessagesNavigator from "./MessagesStackNavigator.js";
 import HomeStackNavigator from "./HomeStackNavigator.js";
-import FavoritesStackNavigator from "./FavoritesStackNavigator.js";
 import ProfileStackNavigator from "./ProfileStackNavigator.js";
 import OnboardingStackNavigator from "./OnboardingStackNavigator.js";
 import { useProfileStore } from "../store/store.js";
@@ -65,7 +64,7 @@ const TabNavigator = () => {
             component={HomeStackNavigator}
             options={{
               tabBarIcon: ({ color }) => (
-                <Ionicons name="home" color={color} size={26} />
+                <Feather name="home" color={color} size={26} />
               ),
             }}
           />
@@ -88,20 +87,11 @@ const TabNavigator = () => {
             }}
           />
           <Tab.Screen
-            name="Favorites"
-            component={FavoritesStackNavigator}
-            options={{
-              tabBarIcon: ({ color }) => (
-                <Ionicons name="heart" color={color} size={26} />
-              ),
-            }}
-          />
-          <Tab.Screen
             name="Profile"
             component={ProfileStackNavigator}
             options={{
               tabBarIcon: ({ color }) => (
-                <Ionicons name="person-circle" color={color} size={26} />
+                <Feather name="user" color={color} size={26} />
               ),
             }}
           />

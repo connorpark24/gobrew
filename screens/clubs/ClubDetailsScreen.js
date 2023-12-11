@@ -11,7 +11,6 @@ import { userData } from "../../constants/data.js";
 
 const ClubDetailsScreen = ({ route, navigation }) => {
   const { currentClub } = route.params;
-  console.log(currentClub);
 
   return (
     <View

@@ -7,15 +7,21 @@ import {
   Pressable,
   ActivityIndicator,
 } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import { supabase } from "../../utils/supabase.js";
-import { COLORS, SHADOWS, STYLES } from "../../constants/theme.js";
+import { COLORS, STYLES } from "../../constants/theme.js";
+import SearchBar from "../../components/SearchBar.js";
 
 const JoinNetworkScreen = ({ navigation }) => {
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredGroups, setFilteredGroups] = useState("");
 
   useEffect(() => {
+    navigation.setOptions({
+      headerTitle: () => <SearchBar onSearchChange={handleSearchChange} />,
+    });
+
     const fetchGroups = async () => {
       try {
         const { data, error } = await supabase
@@ -31,6 +37,18 @@ const JoinNetworkScreen = ({ navigation }) => {
     };
     fetchGroups();
   }, []);
+
+  const handleSearchChange = (query) => {
+    const filtered = userData.filter((user) => {
+      const fullName = `${user.firstName} ${user.lastName}`;
+      return fullName.toLowerCase().includes(query.toLowerCase());
+    });
+    setFilteredData(filtered);
+
+    if (carouselRef.current) {
+      carouselRef.current.snapToItem(0);
+    }
+  };
 
   return (
     <ScrollView style={STYLES.mainContainer}>
