@@ -34,7 +34,7 @@ const CarouselCardItem = ({ item, index, navigation }) => {
             borderTopRightRadius: 20,
             resizeMode: "cover",
           }}
-          source={item.picture}
+          source={{ uri: item.profile_picture }}
         />
         <View
           style={{
@@ -47,7 +47,7 @@ const CarouselCardItem = ({ item, index, navigation }) => {
             {item.first_name} {item.last_name}
           </Text>
           <Text style={[FONTSTYLES.regular, { marginTop: 4 }]}>
-            {item.major}
+            {item.major}, {item.year}
           </Text>
           <Text
             style={[

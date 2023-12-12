@@ -15,6 +15,7 @@ const ConnectScreen = ({ route, navigation }) => {
 
   const { session } = useProfileStore();
   const [message, setMessage] = useState("");
+  const [requested, setRequested] = useState(false);
 
   const handleConnect = async () => {
     try {
@@ -30,7 +31,9 @@ const ConnectScreen = ({ route, navigation }) => {
         return;
       }
 
-      setMessage(""); // Clear the message input field if needed
+      setMessage("");
+      setRequested(true);
+      setTimeout(() => navigation.goBack(), 1000);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -68,6 +71,7 @@ const ConnectScreen = ({ route, navigation }) => {
         >
           <Text style={styles.connectButtonText}>Connect</Text>
         </TouchableOpacity>
+        {requested ? <Text>Request sent!</Text> : <></>}
       </View>
     </View>
   );

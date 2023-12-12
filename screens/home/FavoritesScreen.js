@@ -21,15 +21,7 @@ const FavoritesScreen = ({ navigation }) => {
           flex: 1,
         }}
       >
-        <Carousel
-          layout="default"
-          data={userData}
-          renderItem={(props) => (
-            <CarouselCardItem {...props} navigation={navigation} />
-          )}
-          sliderWidth={SLIDER_WIDTH}
-          itemWidth={ITEM_WIDTH}
-        />
+        <Text>Favorites</Text>
       </View>
     </View>
   );

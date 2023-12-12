@@ -42,7 +42,7 @@ const ProfileScreen = ({ navigation }) => {
       const { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `first_name, last_name, bio, year, major, student_groups, experiences, linkedin_profile, profile_picture`
+          `first_name, last_name, bio, year, major, linkedin_profile, profile_picture`
         )
         .eq("id", session?.user.id)
         .single();
@@ -58,11 +58,7 @@ const ProfileScreen = ({ navigation }) => {
       setLinkedin(data.linkedin_profile);
 
       if (data.profile_picture) {
-        const imageUrl = supabase.storage
-          .from("images")
-          .getPublicUrl(data.profile_picture).data.publicUrl;
-        console.log(imageUrl);
-        setProfilePicture(imageUrl);
+        setProfilePicture(data.profile_picture);
       } else {
         setProfilePicture(require("../../assets/icons/default_pic.png"));
       }
@@ -97,8 +93,8 @@ const ProfileScreen = ({ navigation }) => {
                 <Text style={FONTSTYLES.large}>
                   {firstName} {lastName}
                 </Text>
-                <Text style={[FONTSTYLES.medium, { marginTop: 4 }]}>
-                  {major}
+                <Text style={[FONTSTYLES.regular, { marginTop: 4 }]}>
+                  {major}, {year}
                 </Text>
                 <View
                   style={{
@@ -149,7 +145,9 @@ const ProfileScreen = ({ navigation }) => {
                   height: 120,
                   borderRadius: 60,
                 }}
-                source={require("../../assets/icons/default_pic.png")}
+                source={{
+                  uri: profilePicture,
+                }}
               />
             </View>
 
@@ -158,12 +156,8 @@ const ProfileScreen = ({ navigation }) => {
 
           <View style={{ flexDirection: "column", marginTop: 20, rowGap: 12 }}>
             <View style={STYLES.tagContainer}>
-              <Text style={FONTSTYLES.regular}>Year:</Text>
-              <Tag text={year} />
-            </View>
-            <View style={STYLES.tagContainer}>
               <Text style={FONTSTYLES.regular}>School:</Text>
-              <Tag text={"Engineering"} />
+              <Tag text={"College of Engineering"} />
             </View>
             <View style={STYLES.tagContainer}>
               <Text style={FONTSTYLES.regular}>Internships:</Text>

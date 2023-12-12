@@ -14,7 +14,7 @@ import { useProfileStore } from "../../store/store.js";
 
 const GroupsScreen = ({ navigation }) => {
   const [userGroups, setUserGroups] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { session } = useProfileStore();
 
   useEffect(() => {
@@ -39,6 +39,8 @@ const GroupsScreen = ({ navigation }) => {
         } else {
           setUserGroups(clubsData);
         }
+
+        setLoading(false);
       }
     }
 
@@ -68,7 +70,7 @@ const GroupsScreen = ({ navigation }) => {
               backgroundColor: "white",
               borderRadius: "10px",
               width: "100%",
-              height: "20%",
+              height: 100,
               ...SHADOWS.main,
               backgroundColor: COLORS.primary,
             }}
@@ -108,7 +110,7 @@ const ClubCard = ({ club, index, navigation }) => {
         backgroundColor: "white",
         borderRadius: "10px",
         width: "100%",
-        height: "20%",
+        height: 100,
         ...SHADOWS.main,
       }}
       onPress={() => navigation.navigate("Club Details", { currentClub: club })}

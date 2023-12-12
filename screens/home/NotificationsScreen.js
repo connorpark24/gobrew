@@ -1,22 +1,12 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
-} from "react-native";
-import { STYLES, COLORS, FONTSTYLES } from "../../constants/theme";
-import { useProfileStore } from "../../store/store";
-import { supabase } from "../../utils/supabase";
+import React, { useState, useEffect } from "react";
+import { View, Text, ScrollView, ActivityIndicator } from "react-native";
+import { STYLES, COLORS } from "../../constants/theme";
 
-const NotificationsScreen = ({ route }) => {
-  const { session } = useProfileStore();
-
+const NotificationsScreen = () => {
   return (
-    <View style={STYLES.mainContainer}>
-      <Text>Notificaitons</Text>
-    </View>
+    <ScrollView style={STYLES.mainContainer}>
+      <Text style={STYLES.header}>Notifications</Text>
+    </ScrollView>
   );
 };
 

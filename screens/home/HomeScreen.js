@@ -17,14 +17,14 @@ const HomeScreen = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <View style={{ flexDirection: "row", columnGap: 20 }}>
-          <Pressable
+          {/* <Pressable
             onPress={() => {
               setLiked(!isLiked);
               navigation.navigate("Notifications");
             }}
           >
             <AntDesign name="exclamationcircleo" size={22} />
-          </Pressable>
+          </Pressable> */}
           <Pressable
             onPress={() => {
               setLiked(!isLiked);
