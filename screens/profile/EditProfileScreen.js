@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  Pressable,
+} from "react-native";
 import { COLORS, STYLES } from "../../constants/theme";
 import { supabase } from "../../utils/supabase";
 import { useProfileStore } from "../../store/store";
@@ -17,6 +25,7 @@ const EditProfileScreen = () => {
     experiences,
     linkedin,
     profilePicture,
+    school,
     setFirstName,
     setLastName,
     setMajor,
@@ -25,6 +34,7 @@ const EditProfileScreen = () => {
     setStudentGroups,
     setExperiences,
     setLinkedin,
+    setSchool,
     session,
   } = useProfileStore();
 
@@ -33,6 +43,8 @@ const EditProfileScreen = () => {
   const [errors, setErrors] = useState({
     firstName: false,
     lastName: false,
+    major: false,
+    year: false,
   });
 
   const validateInput = () => {
@@ -68,6 +80,7 @@ const EditProfileScreen = () => {
         student_groups: studentGroups,
         experiences: experiences,
         linkedin_profile: linkedin,
+        school: school,
         updated_at: new Date(),
       };
 
@@ -84,6 +97,17 @@ const EditProfileScreen = () => {
       setLoading(false);
     }
   }
+
+  const options = [
+    "Literature, Science, and Arts",
+    "College of Engineering",
+    "Ross School of Business",
+  ];
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+
+  const handleSelect = (option) => {
+    setSelectedOption(option);
+  };
 
   return (
     <ScrollView style={STYLES.mainContainer}>
@@ -139,17 +163,23 @@ const EditProfileScreen = () => {
           isError={errors.year}
         />
         <ProfileInput
+          label="School"
+          value={school}
+          onChangeText={(text) => setSchool(text)}
+          placeholder="School"
+        />
+        <ProfileInput
           label="Student Groups"
           value={studentGroups}
           onChangeText={(text) => setStudentGroups(text)}
           placeholder="Student Groups"
         />
-        <ProfileInput
+        {/* <ProfileInput
           label="Professional Experiences"
           value={experiences}
           onChangeText={(text) => setExperiences(text)}
           placeholder="Professional Experiences"
-        />
+        /> */}
         <ProfileInput
           label="Linkedin"
           value={linkedin}

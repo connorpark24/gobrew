@@ -15,6 +15,10 @@ const ClubStackNavigator = () => {
       screenOptions={{
         headerShadowVisible: false,
         title: "",
+        transitionSpec: {
+          open: { animation: "timing", config: { duration: 10 } },
+          close: { animation: "timing", config: { duration: 10 } },
+        },
       }}
     >
       <Stack.Screen name="Clubs Screen" component={GroupsScreen} />

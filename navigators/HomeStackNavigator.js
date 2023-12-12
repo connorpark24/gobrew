@@ -16,10 +16,13 @@ const HomeStackNavigator = () => {
       }}
     >
       <Stack.Screen name="Discover" component={HomeScreen} />
-      <Stack.Screen name="User Details" component={UserDetailsScreen} />
+      <Stack.Screen
+        name="User Details"
+        component={UserDetailsScreen}
+        options={{ gestureDirection: "vertical" }}
+      />
       <Stack.Screen name="Connect" component={ConnectScreen} />
       <Stack.Screen name="Favorites" component={FavoritesScreen} />
-      {/* <Stack.Screen name="Notifications" component={NotificationsScreen} /> */}
     </Stack.Navigator>
   );
 };

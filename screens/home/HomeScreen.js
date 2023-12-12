@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Pressable } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Carousel from "react-native-snap-carousel";
 import CarouselCardItem, {
   SLIDER_WIDTH,
   ITEM_WIDTH,
 } from "../../components/CarouselCardItem.js";
 import { STYLES } from "../../constants/theme.js";
-import { SimpleLineIcons, AntDesign } from "react-native-vector-icons";
+import { SimpleLineIcons } from "react-native-vector-icons";
 import { supabase } from "../../utils/supabase.js";
 
 const HomeScreen = ({ navigation }) => {
@@ -17,14 +18,6 @@ const HomeScreen = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <View style={{ flexDirection: "row", columnGap: 20 }}>
-          {/* <Pressable
-            onPress={() => {
-              setLiked(!isLiked);
-              navigation.navigate("Notifications");
-            }}
-          >
-            <AntDesign name="exclamationcircleo" size={22} />
-          </Pressable> */}
           <Pressable
             onPress={() => {
               setLiked(!isLiked);

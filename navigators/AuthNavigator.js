@@ -17,10 +17,6 @@ const AuthNavigator = () => {
         title: "",
         headerTitleAlign: "center",
         headerShadowVisible: false,
-        transitionSpec: {
-          open: { animation: "timing", config: { duration: 0 } },
-          close: { animation: "timing", config: { duration: 0 } },
-        },
       }}
     >
       <Stack.Screen
